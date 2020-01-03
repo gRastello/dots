@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: teo
+# key: teo
+# --
+\begin{theorem}
+  $0
+\end{theorem}
