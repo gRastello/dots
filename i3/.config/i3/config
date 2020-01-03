@@ -108,4 +108,4 @@ bindsym $mod+t exec telegram-desktop
 exec --no-startup-id nm-applet
 exec feh --bg-fill ~/dotfiles/wallpapers/unicorn.jpg
 
-exec setxkbmap -option ctrl:nocaps
+exec setxkbmap -option ctrl:nocaps -option compose:menu
