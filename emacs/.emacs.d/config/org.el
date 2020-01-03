@@ -46,3 +46,7 @@
 ;; Agenda options
 (setq org-agenda-skip-scheduled-if-done t
       org-agenda-todo-ignore-scheduled  'future)
+
+;; Gnuplot for plotting som tables.
+(use-package gnuplot
+  :ensure t)

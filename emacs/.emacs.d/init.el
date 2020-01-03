@@ -33,7 +33,7 @@
  '(ansi-color-names-vector
    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
  '(ansi-term-color-vector
-   [unspecified "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"])
+   [unspecified "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"] t)
  '(custom-enabled-themes (quote (twilight-bright)))
  '(custom-safe-themes
    (quote
@@ -64,7 +64,7 @@
      ("\\?\\?\\?+" . "#dc752f"))))
  '(package-selected-packages
    (quote
-    (spacemacs-theme lua-mode company-irony company-c-headers elfeed twilight-bright-theme zerodark-theme tao-theme yasnippet magit auctex utop use-package tuareg slime-company paredit moe-theme minimal-theme markdown-mode kaolin-themes ido-vertical-mode haskell-mode go-mode exwm counsel)))
+    (gnuplot gnuplot-mode spacemacs-theme lua-mode company-irony company-c-headers elfeed twilight-bright-theme zerodark-theme tao-theme yasnippet magit auctex utop use-package tuareg slime-company paredit moe-theme minimal-theme markdown-mode kaolin-themes ido-vertical-mode haskell-mode go-mode exwm counsel)))
  '(pdf-view-midnight-colors (quote ("#655370" . "#fbf8ef")))
  '(vc-annotate-background "#201D0E")
  '(vc-annotate-color-map
