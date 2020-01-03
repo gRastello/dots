@@ -1,0 +1,18 @@
+#!/bin/sh
+
+BACKUPDIRS=("$HOME/org"
+	    "$HOME/.emacs.d"
+	    "$HOME/pictures"
+	    "$HOME/music"
+	    "$HOME/pdfs"
+	    "$HOME/src"
+	    "$HOME/latex"
+	    "$HOME/dotfiles"
+	    "$HOME/quicklisp"
+	    "$HOME/podcast")
+
+for dir in "${BACKUPDIRS[@]}"; do
+    rsync -av --delete "$dir" "$1"backup
+done
+
+notify-send -u normal Backup "Backup completed!"

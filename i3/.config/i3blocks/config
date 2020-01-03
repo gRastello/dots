@@ -1,0 +1,22 @@
+# i3blocks configuration.
+separator_block_width=15
+markup=pango
+
+[brightness]
+command=~/scripts/bar/brightness
+interval=5
+
+[volume]
+command=~/scripts/bar/volume
+interval=5
+
+[battery]
+command=~/scripts/bar/battery
+interval=5
+
+[clock]
+command=~/scripts/bar/clock
+interval=30
+
+
+
