@@ -100,6 +100,7 @@ bar {
         status_command i3blocks
 	font pango:Source Code Pro 10
 	mode dock
+	position top
 }
 
 # Shortcuts.
