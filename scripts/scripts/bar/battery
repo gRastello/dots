@@ -15,12 +15,15 @@ fi
 
 if [ "$status" = "Charging" ]; then
     status_color="#00ff00"
+    status="(Charging) "
 elif [ "$status" = "Full" ]; then
     status_color="#ffffff"
+    status=""
 else
     status_color="#ffff00"
+    status="(Discharging) "
 fi
 
-printf "BAT "
-printf "(<span color='%s'>%s</span>) " "$status_color" "$status" 
+printf "🔋 "
+printf "<span color='%s'>%s</span>" "$status_color" "$status" 
 printf "<span color='%s'>%s</span> %%\n" "$capacity_color" "$capacity"
