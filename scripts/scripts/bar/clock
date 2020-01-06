@@ -1,4 +1,5 @@
 #!/bin/sh
 
-date '+%Y %b %d (%a) %H:%M'
+d=$(date '+%Y %b %d (%a) %H:%M')
+echo "📅 $d"
 
