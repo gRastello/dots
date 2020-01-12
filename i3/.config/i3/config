@@ -78,6 +78,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # Screenshot.
 bindsym Print exec import -window root ~/pictures/screenshots/last-screenshot.png
+bindsym $mod+Print exec import -window root ~/pictures/screenshots/last-screenshot.png && gimp ~/pictures/screenshots/last-screenshot.png
 
 # Reload the configuration file.
 bindsym $mod+Shift+c reload
