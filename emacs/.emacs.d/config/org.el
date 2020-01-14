@@ -2,6 +2,8 @@
 ;;;
 ;;; Gabriele Rastello
 
+(require 'org)
+
 (setq org-directory "~/org")
 
 (add-hook 'org-mode-hook '(lambda ()
