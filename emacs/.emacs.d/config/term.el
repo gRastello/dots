@@ -8,5 +8,3 @@
   (interactive (list term-shell)))
 (ad-activate 'ansi-term)
 
-;; Keybinding for new terminal.
-(global-set-key (kbd "C-c t") #'ansi-term)

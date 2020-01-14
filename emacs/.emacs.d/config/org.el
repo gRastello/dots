@@ -50,3 +50,11 @@
 ;; Gnuplot for plotting som tables.
 (use-package gnuplot
   :ensure t)
+
+;; Mark the entry at point as TODO and set a deadline for tomorrow.
+(defun org-todo-and-tomorrow ()
+  (interactive)
+  (org-todo)
+  (org-deadline t "+1d"))
+
+(define-key org-mode-map (kbd "C-c t") #'org-todo-and-tomorrow)
