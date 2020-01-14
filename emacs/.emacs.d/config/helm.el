@@ -10,6 +10,8 @@
   ("M-x"     . 'helm-M-x)
   ("C-s"     . 'helm-occur)
   ("M-y"     . 'helm-show-kill-ring)
+
+  ("C-c h" . 'helm-command-prefix)
   :config
   (define-key helm-map (kbd "C-z") 'helm-select-action)
   (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
@@ -31,5 +33,6 @@
   :init
   (helm-mode 1))
 
-;; (require 'helm-config)    
+(semantic-mode 1)
+(require 'helm-config)    
 (helm-autoresize-mode 1)
