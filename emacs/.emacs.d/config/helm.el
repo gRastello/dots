@@ -26,7 +26,10 @@
 	helm-mode-fuzzy-match t
 	helm-semantic-fuzzy-match t
 	helm-imenu-fuzzy-match t
+	helm-M-x-fuzzy-match t
 	helm-completion-in-region-fuzzy-match t
+
+	helm-ff-search-library-in-sexp t
 	
         helm-move-to-line-cycle-in-source nil)
   (setq helm-external-programs-associations '(("pdf"  . "evince")
