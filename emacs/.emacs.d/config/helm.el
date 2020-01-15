@@ -7,6 +7,7 @@
   :bind
   ("C-x C-f" . 'helm-find-files)
   ("C-x C-b" . 'helm-buffers-list)
+  ("C-x b"   . 'helm-buffers-list)
   ("M-x"     . 'helm-M-x)
   ("C-s"     . 'helm-occur)
   ("M-y"     . 'helm-show-kill-ring)
