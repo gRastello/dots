@@ -22,8 +22,6 @@
       org-default-media-file    "~/org/Media.org"
       org-default-notes-file    "~/org/Notes.org")
 
-(global-set-key (kbd "C-c i") (lambda () (interactive) (find-file org-default-inbox-file)))
-
 (setq org-agenda-files (list org-default-tasks-file
 			     org-default-projects-file))
 
