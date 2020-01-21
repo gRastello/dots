@@ -18,12 +18,10 @@
 (setq org-default-inbox-file    "~/org/Inbox.org"
       org-default-incubate-file "~/org/Incubate.org"
       org-default-tasks-file    "~/org/Tasks.org"
-      org-default-projects-file "~/org/Projects.org"
       org-default-media-file    "~/org/Media.org"
       org-default-notes-file    "~/org/Notes.org")
 
-(setq org-agenda-files (list org-default-tasks-file
-			     org-default-projects-file))
+(setq org-agenda-files (list org-default-tasks-file))
 
 ;; TODO options.
 (setq org-log-done 'time)
@@ -38,10 +36,8 @@
 (setq org-refile-use-outline-path        'file
       org-outline-path-complete-in-steps nil)
 
-(setq org-refile-targets '((org-default-incubate-file :level . 1)
-			   (org-default-projects-file :level . 1)
+(setq org-refile-targets '((org-default-incubate-file :level . 0)
 			   (org-default-notes-file :level . 1)
-                           (org-default-media-file :level . 1)
                            (org-default-tasks-file :level . 0)))
 ;; Agenda options
 (setq org-agenda-skip-scheduled-if-done t
