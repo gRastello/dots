@@ -64,7 +64,7 @@
      ("\\?\\?\\?+" . "#dc752f"))))
  '(package-selected-packages
    (quote
-    (gnuplot gnuplot-mode spacemacs-theme lua-mode company-irony company-c-headers elfeed twilight-bright-theme zerodark-theme tao-theme yasnippet magit auctex utop use-package tuareg slime-company paredit moe-theme minimal-theme markdown-mode kaolin-themes ido-vertical-mode haskell-mode go-mode exwm counsel)))
+    (spaceline gnuplot gnuplot-mode spacemacs-theme lua-mode company-irony company-c-headers elfeed twilight-bright-theme zerodark-theme tao-theme yasnippet magit auctex utop use-package tuareg slime-company paredit moe-theme minimal-theme markdown-mode kaolin-themes ido-vertical-mode haskell-mode go-mode exwm counsel)))
  '(pdf-view-midnight-colors (quote ("#655370" . "#fbf8ef")))
  '(vc-annotate-background "#201D0E")
  '(vc-annotate-color-map

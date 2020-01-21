@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mathenv
+# key: $
+# --
+\\($0\\)
