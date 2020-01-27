@@ -99,7 +99,7 @@ bar {
 
 # Shortcuts.
 bindsym $mod+e exec emacs
-bindsym $mod+f exec firefox
+bindsym $mod+w exec brave-browser
 bindsym $mod+t exec telegram-desktop
 
 # Startup.
