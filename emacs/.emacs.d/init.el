@@ -45,6 +45,11 @@
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote cabal-repl))
  '(haskell-tags-on-save t)
+ '(helm-external-programs-associations
+   (quote
+    (("docx" . "openoffice.org")
+     ("pdf" . "evince")
+     ("djvu" . "evince"))))
  '(hl-todo-keyword-faces
    (quote
     (("TODO" . "#dc752f")
