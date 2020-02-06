@@ -34,12 +34,20 @@
    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
  '(ansi-term-color-vector
    [unspecified "#FFFFFF" "#d15120" "#5f9411" "#d2ad00" "#6b82a7" "#a66bab" "#6b82a7" "#505050"] t)
+ '(beacon-color "#d33682")
+ '(compilation-message-face (quote default))
+ '(cua-global-mark-cursor-color "#11948b")
+ '(cua-normal-cursor-color "#596e76")
+ '(cua-overwrite-cursor-color "#a67c00")
+ '(cua-read-only-cursor-color "#778c00")
  '(custom-enabled-themes (quote (wheatgrass)))
  '(custom-safe-themes
    (quote
-    ("58c2c8cc4473c5973e77f4b78a68c0978e68f1ddeb7a1eb34456fce8450be497" "2f945b8cbfdd750aeb82c8afb3753ebf76a1c30c2b368d9d1f13ca3cc674c7bc" "054e929c1df4293dd68f99effc595f5f7eb64ff3c064c4cfaad186cd450796db" "0eb3c0868ff890b0c4ee138069ce2a8936a8a69ba150efa6bfb9fb7c05af5ec3" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "8dce5b23232d0a490f16d62112d3abff6babeef86ae3853241a85856f9b0a6e7" "1068ae7acf99967cc322831589497fee6fb430490147ca12ca7dd3e38d9b552a" "dbade2e946597b9cda3e61978b5fcc14fa3afa2d3c4391d477bdaeff8f5638c5" "801a567c87755fe65d0484cb2bded31a4c5bb24fd1fe0ed11e6c02254017acb2" "341b2570a9bbfc1817074e3fad96a7eff06a75d8e2362c76a2c348d0e0877f31" "3e335d794ed3030fefd0dbd7ff2d3555e29481fe4bbb0106ea11c660d6001767" "cc0dbb53a10215b696d391a90de635ba1699072745bf653b53774706999208e3" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "a9d67f7c030b3fa6e58e4580438759942185951e9438dd45f2c668c8d7ab2caf" "e62b66040cb90a4171aa7368aced4ab9d8663956a62a5590252b0bc19adde6bd" "34dc2267328600f3065630e161a8ae59939700684c232073cdd5afbf78456670" "0f1733ad53138ddd381267b4033bcb07f5e75cd7f22089c7e650f1bb28fc67f4" "fa477d10f10aa808a2d8165a4f7e6cee1ab7f902b6853fbee911a9e27cf346bc" "7d4340a89c1f576d1b5dec57635ab93cdc006524bda486b66d01a6f70cffb08e" "53760e1863395dedf3823564cbd2356e9345e6c74458dcc8ba171c039c7144ed" "ff829b1ac22bbb7cee5274391bc5c9b3ddb478e0ca0b94d97e23e8ae1a3f0c3e" "11e0bc5e71825b88527e973b80a84483a2cfa1568592230a32aedac2a32426c1" "51043b04c31d7a62ae10466da95a37725638310a38c471cc2e9772891146ee52" "030346c2470ddfdaca479610c56a9c2aa3e93d5de3a9696f335fd46417d8d3e4" "886fe9a7e4f5194f1c9b1438955a9776ff849f9e2f2bbb4fa7ed8879cdca0631" default)))
+    ("07e3a1323eb29844e0de052b05e21e03ae2f55695c11f5d68d61fb5fed722dd2" "fa3bdd59ea708164e7821574822ab82a3c51e262d419df941f26d64d015c90ee" "e1ef2d5b8091f4953fe17b4ca3dd143d476c106e221d92ded38614266cea3c8b" "1d50bd38eed63d8de5fcfce37c4bb2f660a02d3dff9cbfd807a309db671ff1af" "6231254e74298a1cf8a5fee7ca64352943de4b495e615c449e9bb27e2ccae709" "6de37d6d573e18138aa948683c8ff0e72b89e90d1cdbf683787ea72f8e6295ab" "777a3a89c0b7436e37f6fa8f350cbbff80bcc1255f0c16ab7c1e82041b06fccd" "229c5cf9c9bd4012be621d271320036c69a14758f70e60385e87880b46d60780" "285efd6352377e0e3b68c71ab12c43d2b72072f64d436584f9159a58c4ff545a" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "008dec0f293f1fc5c1125dfd74125078b32fbe3a6e6348589b071989364bdbbd" "7ed8866a84a70d0afb53c9b67eff51ef916e5c69b819324e8509ea98b0b448aa" "4780d7ce6e5491e2c1190082f7fe0f812707fc77455616ab6f8b38e796cbffa9" "b69323309e5839676409607f91c69da2bf913914321c995f63960c3887224848" "a70b47c87e9b0940f6fece46656200acbfbc55e129f03178de8f50934ac89f58" "58c2c8cc4473c5973e77f4b78a68c0978e68f1ddeb7a1eb34456fce8450be497" "2f945b8cbfdd750aeb82c8afb3753ebf76a1c30c2b368d9d1f13ca3cc674c7bc" "054e929c1df4293dd68f99effc595f5f7eb64ff3c064c4cfaad186cd450796db" "0eb3c0868ff890b0c4ee138069ce2a8936a8a69ba150efa6bfb9fb7c05af5ec3" "26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "8dce5b23232d0a490f16d62112d3abff6babeef86ae3853241a85856f9b0a6e7" "1068ae7acf99967cc322831589497fee6fb430490147ca12ca7dd3e38d9b552a" "dbade2e946597b9cda3e61978b5fcc14fa3afa2d3c4391d477bdaeff8f5638c5" "801a567c87755fe65d0484cb2bded31a4c5bb24fd1fe0ed11e6c02254017acb2" "341b2570a9bbfc1817074e3fad96a7eff06a75d8e2362c76a2c348d0e0877f31" "3e335d794ed3030fefd0dbd7ff2d3555e29481fe4bbb0106ea11c660d6001767" "cc0dbb53a10215b696d391a90de635ba1699072745bf653b53774706999208e3" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" "a9d67f7c030b3fa6e58e4580438759942185951e9438dd45f2c668c8d7ab2caf" "e62b66040cb90a4171aa7368aced4ab9d8663956a62a5590252b0bc19adde6bd" "34dc2267328600f3065630e161a8ae59939700684c232073cdd5afbf78456670" "0f1733ad53138ddd381267b4033bcb07f5e75cd7f22089c7e650f1bb28fc67f4" "fa477d10f10aa808a2d8165a4f7e6cee1ab7f902b6853fbee911a9e27cf346bc" "7d4340a89c1f576d1b5dec57635ab93cdc006524bda486b66d01a6f70cffb08e" "53760e1863395dedf3823564cbd2356e9345e6c74458dcc8ba171c039c7144ed" "ff829b1ac22bbb7cee5274391bc5c9b3ddb478e0ca0b94d97e23e8ae1a3f0c3e" "11e0bc5e71825b88527e973b80a84483a2cfa1568592230a32aedac2a32426c1" "51043b04c31d7a62ae10466da95a37725638310a38c471cc2e9772891146ee52" "030346c2470ddfdaca479610c56a9c2aa3e93d5de3a9696f335fd46417d8d3e4" "886fe9a7e4f5194f1c9b1438955a9776ff849f9e2f2bbb4fa7ed8879cdca0631" default)))
  '(fci-rule-character-color "#d9d9d9")
  '(fci-rule-color "#292617" t)
+ '(flycheck-color-mode-line-face-to-color (quote mode-line-buffer-id))
+ '(frame-background-mode (quote light))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
@@ -50,6 +58,28 @@
     (("docx" . "openoffice.org")
      ("pdf" . "evince")
      ("djvu" . "evince"))))
+ '(highlight-changes-colors (quote ("#c42475" "#5e65b6")))
+ '(highlight-symbol-colors
+   (quote
+    ("#ec90da49b1e9" "#ccb4e1bdd0ac" "#fb9eca14b38f" "#d89bd3eadcf9" "#de29dee7b293" "#f675cca1ae79" "#d05fdab7e079")))
+ '(highlight-symbol-foreground-color "#5d737a")
+ '(highlight-tail-colors
+   (quote
+    (("#f4eedb" . 0)
+     ("#a8b84b" . 20)
+     ("#66c1b3" . 30)
+     ("#6fa5e7" . 50)
+     ("#d6a549" . 60)
+     ("#ed6e3e" . 70)
+     ("#f46495" . 85)
+     ("#f4eedb" . 100))))
+ '(hl-bg-colors
+   (quote
+    ("#d6a549" "#ed6e3e" "#ff6243" "#f46495" "#837bdf" "#6fa5e7" "#66c1b3" "#a8b84b")))
+ '(hl-fg-colors
+   (quote
+    ("#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9" "#fffce9")))
+ '(hl-paren-colors (quote ("#11948b" "#a67c00" "#007ec4" "#5e65b6" "#778c00")))
  '(hl-todo-keyword-faces
    (quote
     (("TODO" . "#dc752f")
@@ -67,11 +97,27 @@
      ("FIXME" . "#dc752f")
      ("XXX+" . "#dc752f")
      ("\\?\\?\\?+" . "#dc752f"))))
+ '(jdee-db-active-breakpoint-face-colors (cons "#1d2127" "#dd8844"))
+ '(jdee-db-requested-breakpoint-face-colors (cons "#1d2127" "#858253"))
+ '(jdee-db-spec-breakpoint-face-colors (cons "#1d2127" "#494952"))
+ '(lsp-ui-doc-border "#5d737a")
+ '(nrepl-message-colors
+   (quote
+    ("#cc1f24" "#bb3e06" "#a67c00" "#4f6600" "#a8b84b" "#005797" "#11948b" "#c42475" "#5e65b6")))
+ '(objed-cursor-color "#aa4450")
  '(package-selected-packages
    (quote
-    (spaceline gnuplot gnuplot-mode spacemacs-theme lua-mode company-irony company-c-headers elfeed twilight-bright-theme zerodark-theme tao-theme yasnippet magit auctex utop use-package tuareg slime-company paredit moe-theme minimal-theme markdown-mode kaolin-themes ido-vertical-mode haskell-mode go-mode exwm counsel)))
+    (doom-themes solarized-theme color-theme-sanityinc-solarized spaceline gnuplot gnuplot-mode spacemacs-theme lua-mode company-irony company-c-headers elfeed twilight-bright-theme zerodark-theme tao-theme yasnippet magit auctex utop use-package tuareg slime-company paredit moe-theme minimal-theme markdown-mode kaolin-themes ido-vertical-mode haskell-mode go-mode exwm counsel)))
  '(pdf-view-midnight-colors (quote ("#655370" . "#fbf8ef")))
+ '(pos-tip-background-color "#f4eedb")
+ '(pos-tip-foreground-color "#5d737a")
+ '(rustic-ansi-faces
+   ["#202020" "#aa4450" "#858253" "#d0770f" "#86aed5" "#8686ae" "#5b8583" "#c2c2b0"])
+ '(smartrep-mode-line-active-bg (solarized-color-blend "#778c00" "#f4eedb" 0.2))
+ '(term-default-bg-color "#fffce9")
+ '(term-default-fg-color "#596e76")
  '(vc-annotate-background "#201D0E")
+ '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map
    (quote
     ((20 . "#737063")
@@ -92,10 +138,19 @@
      (320 . "#FFFFFD")
      (340 . "#FFFFFF")
      (360 . "#FFFFFF"))))
- '(vc-annotate-very-old-color "#ECE9E0"))
+ '(vc-annotate-very-old-color "#ECE9E0")
+ '(weechat-color-list
+   (quote
+    (unspecified "#fffce9" "#f4eedb" "#990001" "#cc1f24" "#4f6600" "#778c00" "#785700" "#a67c00" "#005797" "#007ec4" "#93004d" "#c42475" "#006d68" "#11948b" "#596e76" "#88999b")))
+ '(xterm-color-names
+   ["#f4eedb" "#cc1f24" "#778c00" "#a67c00" "#007ec4" "#c42475" "#11948b" "#002b37"])
+ '(xterm-color-names-bright
+   ["#fffce9" "#bb3e06" "#98a6a6" "#88999b" "#596e76" "#5e65b6" "#5d737a" "#00212b"]))
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+ '(default ((t (:inherit nil :stipple nil :background "#002b36" :foreground "#839496" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "ADBO" :family "Source Code Pro")))))
