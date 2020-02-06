@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: hs
+# key: hs
+# --
+<code class="haskell-code">$1</code>
