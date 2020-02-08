@@ -18,9 +18,10 @@
 (setq org-default-inbox-file    "~/org/Inbox.org"
       org-default-incubate-file "~/org/Incubate.org"
       org-default-tasks-file    "~/org/Tasks.org"
-      org-default-media-file    "~/org/Media.org")
+      org-default-martin-file   "~/org/Martin.org")
 
-(setq org-agenda-files (list org-default-tasks-file))
+(setq org-agenda-files (list org-default-tasks-file
+			     org-default-martin-file))
 
 ;; TODO options.
 (setq org-log-done 'time)
