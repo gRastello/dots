@@ -18,8 +18,7 @@
 (setq org-default-inbox-file    "~/org/Inbox.org"
       org-default-incubate-file "~/org/Incubate.org"
       org-default-tasks-file    "~/org/Tasks.org"
-      org-default-media-file    "~/org/Media.org"
-      org-default-notes-file    "~/org/Notes.org")
+      org-default-media-file    "~/org/Media.org")
 
 (setq org-agenda-files (list org-default-tasks-file))
 
@@ -37,7 +36,6 @@
       org-outline-path-complete-in-steps nil)
 
 (setq org-refile-targets '((org-default-incubate-file :level . 0)
-			   (org-default-notes-file :level . 1)
                            (org-default-tasks-file :level . 0)))
 ;; Agenda options
 (setq org-agenda-skip-scheduled-if-done t
