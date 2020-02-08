@@ -11,7 +11,11 @@
                             (flyspell-mode)))
 
 ;; Global keybindings.
-(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c C-a") 'org-agenda)
+(global-set-key (kbd "C-c a")   #'(lambda ()
+				    (interactive)
+				    (org-agenda nil "a")
+				    (org-agenda-day-view)))
 (global-set-key (kbd "C-c c") 'org-capture)
 
 ;; Org-files
