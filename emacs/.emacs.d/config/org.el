@@ -46,14 +46,24 @@
 (setq org-agenda-skip-scheduled-if-done t
       org-agenda-todo-ignore-scheduled  'future)
 
-;; Gnuplot for plotting som tables.
+;; Gnuplot for plotting some tables.
 (use-package gnuplot
   :ensure t)
 
-;; Mark the entry at point as TODO and set a deadline for tomorrow.
+(defun refile-to (file heading)
+  "Refile current heading to `file` `header`."
+  (let ((pos (save-excursion
+	       (find-file file)
+	       (org-find-exact-headline-in-buffer heading))))
+    (org-refile nil nil (list heading file nil pos))))
+
 (defun org-todo-and-tomorrow ()
+  "Mark the entry at point as TODO, set a deadline for tomorrow and move it to the Task.org file."
   (interactive)
+  (org-mark-ring-push)
   (org-todo)
-  (org-deadline t "+1d"))
+  (org-deadline t "+1d")
+  (refile-to org-default-tasks-file "Tasks")
+  (org-mark-ring-goto))
 
 (define-key org-mode-map (kbd "C-c t") #'org-todo-and-tomorrow)
