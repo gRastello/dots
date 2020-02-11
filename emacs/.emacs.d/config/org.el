@@ -42,6 +42,7 @@
 
 (setq org-refile-targets '((org-default-incubate-file :level . 0)
                            (org-default-tasks-file :level . 0)))
+
 ;; Agenda options
 (setq org-agenda-skip-scheduled-if-done t
       org-agenda-todo-ignore-scheduled  'future)
