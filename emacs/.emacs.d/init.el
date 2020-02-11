@@ -34,7 +34,10 @@
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote cabal-repl))
- '(haskell-tags-on-save t))
+ '(haskell-tags-on-save t)
+ '(package-selected-packages
+   (quote
+    (org-drill zerodark-theme yasnippet utop use-package twilight-bright-theme tuareg tao-theme spacemacs-theme spaceline solarized-theme slime-company paredit moe-theme minimal-theme markdown-mode magit lua-mode kaolin-themes ido-vertical-mode helm haskell-mode go-mode gnuplot-mode gnuplot exwm elfeed doom-themes counsel company-irony company-c-headers color-theme-sanityinc-solarized auctex))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

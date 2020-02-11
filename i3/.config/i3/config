@@ -105,9 +105,10 @@ bar {
 bindsym $mod+e exec emacs
 bindsym $mod+w exec brave-browser
 bindsym $mod+t exec telegram-desktop
+bindsym $mod+g exec feh --randomize --bg-fill ~/pictures/Wallpapers/
 
 # Startup.
 exec --no-startup-id nm-applet
-exec feh --bg-fill ~/dotfiles/wallpapers/turna.png
+exec feh --randomize --bg-fill ~/pictures/Wallpapers/
 
 exec setxkbmap -option ctrl:nocaps -option compose:menu
