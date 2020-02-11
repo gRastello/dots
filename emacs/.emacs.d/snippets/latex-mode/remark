@@ -3,5 +3,6 @@
 # key: remark
 # --
 \begin{remark}
-  $0
+  \label{remark:$1}
+  $2
 \end{remark}
