@@ -68,7 +68,3 @@
   (org-mark-ring-goto))
 
 (define-key org-mode-map (kbd "C-c t") #'org-todo-and-tomorrow)
-
-;; Org-drill
-(use-package org-drill
-  :ensure t)
