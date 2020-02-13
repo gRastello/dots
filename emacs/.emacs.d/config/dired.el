@@ -50,29 +50,4 @@
 
 (define-key dired-mode-map (kbd "C-m") #'dired-xdg-open)
 
-;; Mount command.
-(setq mount-devices-mask "^sd[b-z][0-9]")
-(setq mount-default-mount-point "/mnt")
-
-(defun mount ()
-  "Mount a device to `mnt`."
-  (interactive)
-  (let* ((all-drives (directory-files "/dev" t mount-devices-mask))
-	 (drive (ivy-read "Select drive to mount:" all-drives))
-	 (password (read-passwd "sudo: "))
-	 (process (start-process "mount" "*mount*"
-				 "sudo" "mount" drive mount-default-mount-point)))
-    (process-send-string process password)
-    (process-send-string process "\n")
-    (process-send-eof process)))
-
-(defun umount ()
-  "Umount whatever is mounted at `mnt`."
-  (interactive)
-  (let ((password (read-passwd "sudo: "))
-	(process (start-process "umount" "*umount*"
-				"sudo" "umount" mount-default-mount-point)))
-    (process-send-string process password)
-    (process-send-string process "\n")
-    (process-send-eof)))
 
