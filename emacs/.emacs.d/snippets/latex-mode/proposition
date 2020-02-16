@@ -3,5 +3,6 @@
 # key: prop
 # --
 \begin{proposition}
-  $0
+  \label{prop:$1}
+  $2
 \end{proposition}

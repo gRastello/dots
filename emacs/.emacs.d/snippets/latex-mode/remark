@@ -1,5 +1,8 @@
 # -*- mode: snippet -*-
-# name: ar
-# key: ar
+# name: remark
+# key: remark
 # --
-\ar[$1, "$2"]$3
+\begin{remark}
+  \label{rem:$1}
+  $2
+\end{remark}

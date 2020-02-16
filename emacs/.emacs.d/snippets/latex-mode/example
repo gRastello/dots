@@ -3,5 +3,6 @@
 # key: ex
 # --
 \begin{example}
-  $0
+  \label{ex:$1}
+  $2
 \end{example}
