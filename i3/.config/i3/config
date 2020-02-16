@@ -114,6 +114,6 @@ bindsym $mod+Shift+v exec $HOME/scripts/stdmap
 
 # Startup.
 exec --no-startup-id nm-applet
-exec feh --bg-fill ~/dotfiles/wallpapers/turna.png
+exec feh --bg-fill ~/dotfiles/wallpapers/solid.png
 
 exec setxkbmap -option ctrl:nocaps -option compose:menu
