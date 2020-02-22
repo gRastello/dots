@@ -4,5 +4,6 @@
 # --
 
 \begin{definition}
-  $0
+  \label{def:$1}
+  $2
 \end{definition}

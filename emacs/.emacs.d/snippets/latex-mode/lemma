@@ -3,5 +3,6 @@
 # key: lemma
 # --
 \begin{lemma}
-  $0
+  \label{lemma:$1}
+  $2
 \end{lemma}
