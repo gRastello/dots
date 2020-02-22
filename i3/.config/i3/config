@@ -117,3 +117,6 @@ exec --no-startup-id nm-applet
 exec feh --bg-fill ~/dotfiles/wallpapers/zephy.jpg
 
 exec setxkbmap -option ctrl:nocaps -option compose:menu
+
+exec emacs
+exec brave-browser
