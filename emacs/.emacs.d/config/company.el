@@ -9,5 +9,4 @@
         company-minimum-prefix-length 3)
   (setq company-backends (delete 'company-semantic company-backends))
   
-  (add-hook 'after-init-hook 'global-company-mode))
-
+  (add-hook 'prog-mode-hook 'company-mode))
