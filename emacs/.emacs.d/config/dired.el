@@ -34,6 +34,7 @@
 (setq dired-ext-open-alist '(("mkv"  . "mpv")
                              ("mp4"  . "mpv")
                              ("webm" . "mpv")
+			     ("mov"  . "mpv")
 			     ("exe"  . "wine")
                              ("djvu" . "evince")
 			     ("pdf"  . "evince")))
