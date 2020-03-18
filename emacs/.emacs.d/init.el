@@ -33,25 +33,21 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
- '(custom-enabled-themes nil)
+ '(custom-enabled-themes (quote (sanityinc-tomorrow-eighties)))
  '(custom-safe-themes
    (quote
-    ("ae65ccecdcc9eb29ec29172e1bfb6cadbe68108e1c0334f3ae52414097c501d2" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "7675ffd2f5cb01a7aab53bcdd702fa019b56c764900f2eea0f74ccfc8e854386" "03cc0972581c0f4c8ba3c10452cb6d52a9f16123df414b917e06445c5fdbe255" default)))
+    ("628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "ae65ccecdcc9eb29ec29172e1bfb6cadbe68108e1c0334f3ae52414097c501d2" "e61752b5a3af12be08e99d076aedadd76052137560b7e684a8be2f8d2958edc3" "7675ffd2f5cb01a7aab53bcdd702fa019b56c764900f2eea0f74ccfc8e854386" "03cc0972581c0f4c8ba3c10452cb6d52a9f16123df414b917e06445c5fdbe255" default)))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-tags-on-save t)
+ '(helm-completion-style (quote emacs))
  '(package-selected-packages
    (quote
-    (vterm parchment-theme org-drill zerodark-theme yasnippet utop use-package twilight-bright-theme tuareg tao-theme spacemacs-theme spaceline solarized-theme slime-company paredit moe-theme minimal-theme markdown-mode magit lua-mode kaolin-themes ido-vertical-mode helm haskell-mode go-mode gnuplot-mode gnuplot exwm elfeed doom-themes counsel company-irony company-c-headers color-theme-sanityinc-solarized auctex))))
+    (color-theme-sanityinc-tomorrow vterm parchment-theme org-drill zerodark-theme yasnippet utop use-package twilight-bright-theme tuareg tao-theme spacemacs-theme spaceline solarized-theme slime-company paredit moe-theme minimal-theme markdown-mode magit lua-mode kaolin-themes ido-vertical-mode helm haskell-mode go-mode gnuplot-mode gnuplot exwm elfeed doom-themes counsel company-irony company-c-headers color-theme-sanityinc-solarized auctex))))
 
 
 
 
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "white" :foreground "black" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "ADBO" :family "Source Code Pro")))))
+
