@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: example
-# key: ex
-# --
-\begin{example}
-  \label{ex:$1}
-  $2
-\end{example}

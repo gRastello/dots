@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: remark
-# key: remark
-# --
-\begin{remark}
-  \label{rem:$1}
-  $2
-\end{remark}

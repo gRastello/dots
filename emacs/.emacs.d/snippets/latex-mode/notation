@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: notation
-# key: notation
-# --
-\begin{notation}
-  $0
-\end{notation}

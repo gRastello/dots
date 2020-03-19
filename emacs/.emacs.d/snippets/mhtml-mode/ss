@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: ss
-# key: ss
-# --
-<span class="string">$1</span>$2
