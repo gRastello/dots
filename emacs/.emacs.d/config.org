@@ -1,0 +1,8 @@
+#+TITLE: Emacs
+#+AUTHOR: Gabriele Rastello
+
+My Emacs stuff.
+
+#+BEGIN_SRC emacs-lisp
+  (setq *foo* "bar")
+#+END_SRC
