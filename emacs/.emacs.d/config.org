@@ -156,7 +156,7 @@ Some of these skeletons can be a bit verbose because I want the automatically in
     "Function name: "
     @ "(defun " str " (" _ ")\n\"\"\n)" @
       '(indent-region (cadr skeleton-positions)
-		      (car   skeleton-positions)))
+		      (car  skeleton-positions)))
 
   (define-abbrev-table 'emacs-lisp-mode-abbrev-table
     '(("fun" "" lisp/defun-skeleton)))
