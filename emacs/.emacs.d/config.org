@@ -276,7 +276,10 @@ It's as awesome as people say.
 
   (setq org-agenda-skip-scheduled-if-done t
 	org-agenda-todo-ignore-scheduled  'future)
+#+END_SRC
 
+A better (faster) way to move headers from =Inbox.org= to =Tasks.org=.
+#+BEGIN_SRC emacs-lisp
   (defun refile-to (file heading)
     "Refile current heading to `file` `header`."
     (let ((pos (save-excursion
