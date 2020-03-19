@@ -107,6 +107,7 @@
  '(company-tooltip-search ((default (:inherit (highlight)))))
  '(company-tooltip-search-selection ((default (:inherit (highlight)))))
  '(default ((t (:background "#262626" :foreground "#F8F8F2"))))
- '(company-tooltip-common ((t (:foreground "#FF6666")))))
+ '(company-tooltip-common ((t (:foreground "#FF6666"))))
+ '(org-warning ((((class color) (min-colors 257)) (:foreground "#FD971F" :weight bold :italic t :underline nil)) (((class color) (min-colors 89)) (:foreground "#FF8C00" :weight bold :italic t :underline nil)))))
 
 (provide-theme 'Witchmacs)

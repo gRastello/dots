@@ -1,8 +1,281 @@
 #+TITLE: Emacs
 #+AUTHOR: Gabriele Rastello
 
-My Emacs stuff.
+#+BEGIN_QUOTE
+This is my Emacs. There are many like it, but this one is mine.
+#+END_QUOTE
 
+I've build countless Emacs from scratch, this is the latest one. Heavily inspired by [[https://github.com/snackon/Witchmacs][Witchmacs]] (I've shamelessly copied the org-file layout and a bunch of packages (and maybe even descriptions of packages)) but of course way more tailored to my needs (indeed this is not a configuration for "public use" like Witchmacs is). I even use the Witchmacs theme (with slight modifications).
+
+* Quality of Life
+nLet's face it: some things of default Emacs are just annoying. Here we try to fix some.
+
+** Backups
+I have having backup files all over my directories, but it also happens that sometimes I'm stupid enough to delete some very important non version-controlled file, so I like backups in the end. Just put them in a dedicated folder.
 #+BEGIN_SRC emacs-lisp
-  (setq *foo* "bar")
+  (setq backup-directory-alist '(("." . "~/emacs-backups"))
+	backup-by-copying      t
+	delete-old-versions    t
+	kept-new-versions      10
+	kept-old-versions      3)
+#+END_SRC
+
+** Conservative scrolling.
+#+BEGIN_SRC emacs-lisp
+  (setq scroll-conservatively 100)
+#+END_SRC
+
+** Disable the bell
+That thing is annoying as few things in this world can be.
+#+BEGIN_SRC emacs-lisp
+  (setq ringbell-function 'ignore)
+#+END_SRC
+
+** Disable the default startup buffer
+Nothing is more comfortable that the good old =*scratch*=.
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+#+END_SRC
+
+** Disable useless GUI
+You're not 3yo anymore.
+#+BEGIN_SRC emacs-lisp
+  (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
+#+END_SRC
+
+** Easy resize
+The default keybindings to resize windows are cancer.
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "s-C-b") 'shrink-window-horizontally)
+  (global-set-key (kbd "s-C-f") 'enlarge-window-horizontally)
+  (global-set-key (kbd "s-C-n") 'shrink-window)
+  (global-set-key (kbd "s-C-p") 'enlarge-window)
+#+END_SRC
+
+** Parenthesis
+It helps to be able to quickly type them and to be able to tell immediately where matching pairs are located.
+#+BEGIN_SRC emacs-lisp
+  (show-paren-mode 1)
+
+  (setq electric-pair-pairs '(
+			      (?\{ . ?\})
+			      (?\( . ?\))
+			      (?\[ . ?\])
+			      (?\" . ?\")
+			      ))
+  (electric-pair-mode t)
+#+END_SRC
+
+** Sane buffer killing
+I don't kill buffers all the time, but when I do I always kill the current buffer and I want it dead as fast as possible. I'll regret my actions later.
+#+BEGIN_SRC emacs-lisp
+  (defun murder-current-buffer ()
+    "directly kill the current buffer"
+    (interactive)
+    (kill-buffer (current-buffer)))
+
+  (global-set-key (kbd "C-x k") #'murder-current-buffer)
+#+END_SRC
+
+** Sane window splitting
+If I decide that I want a new window, I want my point there.
+#+BEGIN_SRC emacs-lisp
+  (defun split-and-follow-horizontally ()
+    "split current window horizontally and move the cursor in it"
+    (interactive)
+    (split-window-below)
+    (balance-windows)
+    (other-window 1))
+
+  (defun split-and-follow-vertically ()
+    "split current window vertically and move the cursor in it"
+    (interactive)
+    (split-window-right)
+    (balance-windows)
+    (other-window 1))
+
+  (global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+  (global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+#+END_SRC
+
+** yes-or-no to y-or-n
+This is probably the most annoying thing of all.
+#+BEGIN_SRC emacs-lisp
+  (defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+* Packages
+This is why you use Emacs.
+
+** =ivy=, =counsel= and =swiper=
+A trinity of minibuffer utility.
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t
+    :config
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-recursive-minibuffer t)
+    (setq ivy-use-selectable-prompt t)
+    :init
+    (ivy-mode 1))
+
+  (use-package counsel
+    :ensure t
+    :init
+    (counsel-mode 1))
+
+  (use-package swiper
+    :bind
+    ("C-s" . swiper)
+    :ensure t)
+#+END_SRC
+
+** =abbrev-mode= and =skeleton-mode=
+Let's get rid of yasnippet with this combo of built-in modes. I do not have =abbrev-mode= always active since I prefer to manually expand my snippets with =C-x '=. I also prefer to have all my snippets here in the config file rather than in a separate directory (as yasnippet does).
+#+BEGIN_SRC emacs-lisp
+  (setq save-abbrevs nil)
+#+END_SRC
+
+*** General skeletons
+Skeletons that might be needed in more modes.
+#+BEGIN_SRC emacs-lisp
+  (define-skeleton math-environment-skeleton
+    "Latex math environment (useful for tex files, mathjax stuff)."
+    nil
+    "\\(" _ "\\)")
+#+END_SRC
+
+*** Particular skeletons and abbrev tables
+Specific skeletons for various modes and purposes and abbrev tables for them.
+
+**** Latex
+#+BEGIN_SRC emacs-lisp
+  (define-skeleton latex/environment-skeleton
+    "Ask for an environment and insert it."
+    "Environment name: "
+    "\\begin{" str "}\n  " _ "\n\\end{" str "}")
+
+  (define-abbrev-table 'latex-mode-abbrev-table
+    '(("m" "" math-environment-skeleton)
+      ("e" "" latex/environment-skeleton)))
+#+END_SRC
+
+** =auto-package-update=
+Keep your packages updated and remove some of the garbage that you'll end up creating.
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-package-update
+    :defer nil
+    :ensure t
+    :config
+    (setq auto-package-update-delete-old-versions t)
+    (setq auto-package-update-hide-results t)
+    (auto-package-update-maybe))
+#+END_SRC
+
+** =avy=
+I've never really used this, but I guess I'll give it a try.
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+    :ensure t
+    :config
+    (setq avy-all-windows nil)
+    :bind
+    ("M-s" . avy-goto-char))
+#+END_SRC
+
+** =magit=
+The comfiest way to use =git=.
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t
+    :config
+    (global-set-key (kbd "C-c g") #'magit-status))
+#+END_SRC
+
+** Modeline
+# Since I'm basically copying everything from [[https://github.com/snackon/Witchmacs][Witchmacs]] we shall combine =powerline= and =spaceline=.
+#+BEGIN_SRC emacs-lisp
+  (use-package spaceline
+    :ensure t
+    :config
+    (require 'spaceline-config)
+    (setq powerline-default-separator (quote wave))
+    ;; (setq powerline-height 25)
+    (spaceline-spacemacs-theme)
+
+    (spaceline-toggle-minor-modes-off)
+    (spaceline-toggle-line-on)
+
+    (spaceline-helm-mode))
+#+END_SRC
+
+** =which-key=
+Maybe useful if you forget your keybindings often (that is unlikely to happen through) but surprisingly useful for discovering things you would have never thought existed ().
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :ensure t
+    :init
+    (which-key-mode))
+#+END_SRC
+
+* Org-mode
+It's as awesome as people say.
+#+BEGIN_SRC emacs-lisp
+  (require 'org)
+
+  (setq org-directory "~/org")
+
+  (add-hook 'org-mode-hook '(lambda ()
+			      (visual-line-mode 1)
+			      (flyspell-mode)))
+
+  (global-set-key (kbd "C-c a")   #'(lambda ()
+				      (interactive)
+				      (org-agenda nil "a")
+				      (org-agenda-day-view)))
+  (global-set-key (kbd "C-c c") 'org-capture)
+
+  (setq org-default-inbox-file    "~/org/Inbox.org"
+	org-default-incubate-file "~/org/Incubate.org"
+	org-default-tasks-file    "~/org/Tasks.org"
+	org-default-martin-file   "~/org/Martin.org")
+
+  (setq org-agenda-files (list org-default-tasks-file
+			       org-default-martin-file))
+
+  (setq org-log-done 'time)
+
+  (setq org-capture-templates `(("i" "Inbox entry"        entry
+				 (file ,org-default-inbox-file)
+				 "* %?\n%i"
+				 :empty-lines 1)))
+
+  (setq org-refile-use-outline-path        'file
+	org-outline-path-complete-in-steps nil)
+
+  (setq org-refile-targets '((org-default-incubate-file :level . 0)
+			     (org-default-tasks-file :level . 0)))
+
+  (setq org-agenda-skip-scheduled-if-done t
+	org-agenda-todo-ignore-scheduled  'future)
+
+  (defun refile-to (file heading)
+    "Refile current heading to `file` `header`."
+    (let ((pos (save-excursion
+		 (find-file file)
+		 (org-find-exact-headline-in-buffer heading))))
+      (org-refile nil nil (list heading file nil pos))))
+
+  (defun org-todo-and-tomorrow ()
+    "Mark the entry at point as TODO, set a deadline for tomorrow and move it to the Task.org file."
+    (interactive)
+    (org-mark-ring-push)
+    (org-todo)
+    (org-deadline t "+1d")
+    (refile-to org-default-tasks-file "Tasks")
+    (org-mark-ring-goto))
+
+  (define-key org-mode-map (kbd "C-c t") #'org-todo-and-tomorrow)
 #+END_SRC
