@@ -8,7 +8,7 @@ This is my Emacs. There are many like it, but this one is mine.
 I've build countless Emacs from scratch, this is the latest one. Heavily inspired by [[https://github.com/snackon/Witchmacs][Witchmacs]] (I've shamelessly copied the org-file layout and a bunch of packages (and maybe even descriptions of packages)) but of course way more tailored to my needs (indeed this is not a configuration for "public use" like Witchmacs is). I even use the Witchmacs theme (with slight modifications).
 
 * Quality of Life
-nLet's face it: some things of default Emacs are just annoying. Here we try to fix some.
+Let's face it: some things of default Emacs are just annoying. Here we try to fix some.
 
 ** Backups
 I have having backup files all over my directories, but it also happens that sometimes I'm stupid enough to delete some very important non version-controlled file, so I like backups in the end. Just put them in a dedicated folder.
@@ -109,29 +109,6 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
-** =ivy=, =counsel= and =swiper=
-A trinity of minibuffer utility.
-#+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :ensure t
-    :config
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-recursive-minibuffer t)
-    (setq ivy-use-selectable-prompt t)
-    :init
-    (ivy-mode 1))
-
-  (use-package counsel
-    :ensure t
-    :init
-    (counsel-mode 1))
-
-  (use-package swiper
-    :bind
-    ("C-s" . swiper)
-    :ensure t)
-#+END_SRC
-
 ** =abbrev-mode= and =skeleton-mode=
 Let's get rid of yasnippet with this combo of built-in modes. I do not have =abbrev-mode= always active since I prefer to manually expand my snippets with =C-x '=. I also prefer to have all my snippets here in the config file rather than in a separate directory (as yasnippet does).
 #+BEGIN_SRC emacs-lisp
@@ -162,6 +139,12 @@ Specific skeletons for various modes and purposes and abbrev tables for them.
       ("e" "" latex/environment-skeleton)))
 #+END_SRC
 
+**** Org-mode
+#+BEGIN_SRC emacs-lisp
+  (define-abbrev-table 'org-mode-abbrev-table
+    '(("m" "" math-environment-skeleton)))
+#+END_SRC
+
 ** =auto-package-update=
 Keep your packages updated and remove some of the garbage that you'll end up creating.
 #+BEGIN_SRC emacs-lisp
@@ -183,6 +166,29 @@ I've never really used this, but I guess I'll give it a try.
     (setq avy-all-windows nil)
     :bind
     ("M-s" . avy-goto-char))
+#+END_SRC
+
+** =ivy=, =counsel= and =swiper=
+A trinity of minibuffer utility.
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t
+    :config
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-recursive-minibuffer t)
+    (setq ivy-use-selectable-prompt t)
+    :init
+    (ivy-mode 1))
+
+  (use-package counsel
+    :ensure t
+    :init
+    (counsel-mode 1))
+
+  (use-package swiper
+    :bind
+    ("C-s" . swiper)
+    :ensure t)
 #+END_SRC
 
 ** =magit=
