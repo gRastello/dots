@@ -109,6 +109,13 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
+** =newsticker=
+I used to use elfeed, but I guess I'll try this built in thing.
+#+BEGIN_SRC emacs-lisp
+  (setq newsticker-url-list-defaults nil)
+  (load-file "~/.emacs.d/feeds.el")
+#+END_SRC
+
 ** =abbrev-mode= and =skeleton-mode=
 Let's get rid of yasnippet with this combo of built-in modes. I do not have =abbrev-mode= always active since I prefer to manually expand my snippets with =C-x '=. I also prefer to have all my snippets here in the config file rather than in a separate directory (as yasnippet does).
 #+BEGIN_SRC emacs-lisp
