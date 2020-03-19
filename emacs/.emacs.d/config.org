@@ -217,6 +217,12 @@ The comfiest way to use =git=.
     (spaceline-helm-mode))
 #+END_SRC
 
+** Latex
+The best document preparation system with the most painful syntax of all.
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'latex-mode-hook 'flyspell-mode)
+#+END_SRC
+
 ** =which-key=
 Maybe useful if you forget your keybindings often (that is unlikely to happen through) but surprisingly useful for discovering things you would have never thought existed ().
 #+BEGIN_SRC emacs-lisp
