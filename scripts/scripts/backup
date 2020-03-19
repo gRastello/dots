@@ -6,7 +6,7 @@ BACKUPDIRS=("$HOME/org"
 	    "$HOME/music"
 	    "$HOME/pdfs"
 	    "$HOME/src"
-	    "$HOME/latex"
+	    "$HOME/documents"
 	    "$HOME/dotfiles"
 	    "$HOME/quicklisp"
 	    "$HOME/podcast")
