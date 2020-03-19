@@ -149,6 +149,19 @@ Some of these skeletons can be a bit verbose because I want the automatically in
     '(("m" "" math-environment-skeleton)))
 #+END_SRC
 
+**** Lisp
+#+BEGIN_SRC emacs-lisp
+  (define-skeleton lisp/defun-skeleton
+    "Insert a basic function template"
+    "Function name: "
+    @ "(defun " str " (" _ ")\n\"\"\n)" @
+      '(indent-region (cadr skeleton-positions)
+		      (car   skeleton-positions)))
+
+  (define-abbrev-table 'emacs-lisp-mode-abbrev-table
+    '(("fun" "" lisp/defun-skeleton)))
+#+END_SRC
+
 ** =auto-package-update=
 Keep your packages updated and remove some of the garbage that you'll end up creating.
 #+BEGIN_SRC emacs-lisp
