@@ -128,11 +128,15 @@ Skeletons that might be needed in more modes.
 Specific skeletons for various modes and purposes and abbrev tables for them.
 
 **** Latex
+Some of these skeletons can be a bit verbose because I want the automatically inserted text to be well-indented.
 #+BEGIN_SRC emacs-lisp
   (define-skeleton latex/environment-skeleton
-    "Ask for an environment and insert it."
+    "Ask for an environment name and insert it."
     "Environment name: "
-    "\\begin{" str "}\n  " _ "\n\\end{" str "}")
+    @ "\\begin{" str "}\n  \n\\end{" str "}" @
+      '(indent-region (cadr skeleton-positions)
+		      (car   skeleton-positions))
+      '(previous-line))
 
   (define-abbrev-table 'latex-mode-abbrev-table
     '(("m" "" math-environment-skeleton)
