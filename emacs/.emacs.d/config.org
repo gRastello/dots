@@ -192,8 +192,14 @@ It's the best feed readed for Emacs.
     :ensure t
     :config
     (load-file "~/.emacs.d/feeds.el") ;; A man is allowed to have its secrets
+
+    (defun elfeed-and-update ()
+      "Launch elfeed and update"
+      (interactive)
+      (elfeed)
+      (elfeed-update))
     :bind
-    ("C-c f" . elfeed))
+    ("C-c f" . elfeed-and-update))
 #+END_SRC
 
 ** =eshell=
