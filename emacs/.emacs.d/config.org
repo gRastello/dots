@@ -196,6 +196,15 @@ It's the best feed readed for Emacs.
     ("C-c f" . elfeed))
 #+END_SRC
 
+** =eshell=
+The emacs shell, cool for running some commands. Not ideal for heavy cli work but you usually don't need that with Emacs.
+#+BEGIN_SRC emacs-lisp
+  (use-package eshell
+    :ensure t
+    :bind
+    ("C-c e" . eshell))
+#+END_SRC
+
 ** =ivy=, =counsel= and =swiper=
 A trinity of minibuffer utility.
 #+BEGIN_SRC emacs-lisp
