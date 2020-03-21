@@ -4,7 +4,7 @@ markup=pango
 
 [corona]
 command=~/scripts/bar/corona
-interval=5
+interval=3600
 
 [brightness]
 command=~/scripts/bar/brightness
