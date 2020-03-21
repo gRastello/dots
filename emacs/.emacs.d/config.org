@@ -122,6 +122,13 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
+** =async=
+Use asynchronous processes when possible.
+#+BEGIN_SRC emacs-lisp
+  (use-package async
+    :ensure t)
+#+END_SRC
+
 ** =abbrev-mode=
 I used yasnippet for some time and now I fancy a change. =abbrev-mode= is quite cool but it isn't flexible enough; combining it with =skeleton-mode= is good but I wasn't able to get rid of some annoying behavior (you know those little things that aren't really a big deal but make you go insane? That.). In the end the solution I've found is quite simple: using elisp functions instead of skeletons. It is a little more painful to create new snippets, but it makes things as customizable as they can get.
 
