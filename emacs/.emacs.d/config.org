@@ -196,7 +196,7 @@ The emacs window manager.
     (exwm-enable))
     #+END_SRC
 
-Make emacs usable.
+Make emacs usable by setting up caps lock to work as control. Also start the networkmanager applet. Yes, this is basically a startup script that I could move to a shell script.
 #+BEGIN_SRC emacs-lisp
   ;; (shell-command "setxkbmap -option ctrl:nocaps -option compose:menu" nil nil)
   (start-process "setup caps lock and menu key" nil
