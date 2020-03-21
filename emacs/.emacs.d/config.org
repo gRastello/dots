@@ -109,57 +109,73 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
-** =abbrev-mode= and =skeleton-mode=
+** =abbrev-mode=
+I used yasnippet for some time and now I fancy a change. =abbrev-mode= is quite cool but it isn't flexible enough; combining it with =skeleton-mode= is good but I wasn't able to get rid of some annoying behavior (you know those little things that aren't really a big deal but make you go insane? That.). In the end the solution I've found is quite simple: using elisp functions instead of skeletons. It is a little more painful to create new snippets, but it makes things as customizable as they can get.
+
 Let's get rid of yasnippet with this combo of built-in modes. I do not have =abbrev-mode= always active since I prefer to manually expand my snippets with =C-x '=. I also prefer to have all my snippets here in the config file rather than in a separate directory (as yasnippet does).
 #+BEGIN_SRC emacs-lisp
   (setq save-abbrevs nil)
 #+END_SRC
 
-*** General skeletons
-Skeletons that might be needed in more modes.
+*** General snippets
+Snippets that might be needed in more modes.
 #+BEGIN_SRC emacs-lisp
-  (define-skeleton math-environment-skeleton
-    "Latex math environment (useful for tex files, mathjax stuff)."
-    nil
-    "\\(" _ "\\)")
+  (defun snippet/math-environment ()
+    (interactive)
+    (insert "\\(\\)")
+    (backward-char 2))
 #+END_SRC
 
-*** Particular skeletons and abbrev tables
-Specific skeletons for various modes and purposes and abbrev tables for them.
+*** Mode-unique snippets and abbrev tables
+Specific snippets for various modes and purposes and abbrev tables for them.
 
 **** Latex
-Some of these skeletons can be a bit verbose because I want the automatically inserted text to be well-indented.
 #+BEGIN_SRC emacs-lisp
-  (define-skeleton latex/environment-skeleton
+  (defun snippet/latex/environment ()
     "Ask for an environment name and insert it."
-    "Environment name: "
-    @ "\\begin{" str "}\n  \n\\end{" str "}" @
-      '(indent-region (cadr skeleton-positions)
-		      (car   skeleton-positions))
-      '(previous-line))
+    (interactive)
+    (let ((name (read-string "Environment name: "))
+	  (start-position (point)))
+      (insert "\\begin{" name "}\n\n\\end{" name "}")
+      (indent-region start-position (point))
+      (previous-line)
+      (indent-for-tab-command)))
 
   (define-abbrev-table 'latex-mode-abbrev-table
-    '(("m" "" math-environment-skeleton)
-      ("e" "" latex/environment-skeleton)))
+    '(("m" "" snippet/math-environment)
+      ("e" "" snippet/latex/environment)))
 #+END_SRC
 
 **** Org-mode
 #+BEGIN_SRC emacs-lisp
   (define-abbrev-table 'org-mode-abbrev-table
-    '(("m" "" math-environment-skeleton)))
+    '(("m" "" snippet/math-environment)))
 #+END_SRC
 
 **** Lisp
 #+BEGIN_SRC emacs-lisp
-  (define-skeleton lisp/defun-skeleton
-    "Insert a basic function template"
-    "Function name: "
-    @ "(defun " str " (" _ ")\n\"\"\n)" @
-      '(indent-region (cadr skeleton-positions)
-		      (car  skeleton-positions)))
+  (defun snippet/lisp/defun (&optional interactive)
+    "Insert a function definition."
+    (interactive)
+    (let ((name (read-string "Function name: "))
+	  (start-position (point)))
+      (insert "(defun " name " ()\n\"\""
+	      (if interactive "\n(interactive)" "")
+	      ")")
+
+      ;; Fix indentation and reposition the cursor. 
+      (indent-region start-position (point))
+      (move-end-of-line (if interactive -1 0))
+      (backward-char 1)))
+
+  (defun snippet/lisp/defun-interactive ()
+    "Insert an interctive function."
+    (interactive)
+    (funcall 'snippet/lisp/defun 'interactive))
 
   (define-abbrev-table 'emacs-lisp-mode-abbrev-table
-    '(("fun" "" lisp/defun-skeleton)))
+    '(("f"  "" snippet/lisp/defun)
+      ("fi" "" snippet/lisp/defun-interactive)))
 #+END_SRC
 
 ** =auto-package-update=
