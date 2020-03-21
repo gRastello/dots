@@ -112,7 +112,6 @@ This is why you use Emacs.
 ** =abbrev-mode=
 I used yasnippet for some time and now I fancy a change. =abbrev-mode= is quite cool but it isn't flexible enough; combining it with =skeleton-mode= is good but I wasn't able to get rid of some annoying behavior (you know those little things that aren't really a big deal but make you go insane? That.). In the end the solution I've found is quite simple: using elisp functions instead of skeletons. It is a little more painful to create new snippets, but it makes things as customizable as they can get.
 
-Let's get rid of yasnippet with this combo of built-in modes. I do not have =abbrev-mode= always active since I prefer to manually expand my snippets with =C-x '=. I also prefer to have all my snippets here in the config file rather than in a separate directory (as yasnippet does).
 #+BEGIN_SRC emacs-lisp
   (setq save-abbrevs nil)
 #+END_SRC
