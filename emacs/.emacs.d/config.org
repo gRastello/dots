@@ -153,6 +153,27 @@ The emacs window manager.
 			#'(lambda () (interactive)
 			    (exwm/change-brightness 'down "5")))
 
+    (defun exwm/change-volume (direction n)
+      "Change volume by `n' in `direction'."
+      (interactive)
+      (let ((d (if (eq direction 'up) "+" "-")))
+	(start-process "change-volume" nil "pactl"
+		       "set-sink-volume"
+		       "@DEFAULT_SINK@"
+		       (concat d n "%"))))
+    (exwm-input-set-key (kbd "<XF86AudioRaiseVolume>")
+			#'(lambda () (interactive)
+			    (exwm/change-volume 'up "5")))
+    (exwm-input-set-key (kbd "<XF86AudioLowerVolume>")
+			#'(lambda () (interactive)
+			    (exwm/change-volume 'down "5")))
+    (exwm-input-set-key (kbd "<XF86AudioMute>")
+			#'(lambda () (interactive)
+			    (start-process "toggle-mute" nil "pactl"
+					   "set-sink-mute"
+					   "@DEFAULT_SINK@"
+					   "toggle")))
+  
     ;; For some reason not all global keybindings work while in EXWM windows, so I
     ;; put them here.
     (exwm-input-set-key (kbd "M-<tab>") #'switch-to-last-buffer)
