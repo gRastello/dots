@@ -71,7 +71,7 @@ It helps to be able to quickly type them and to be able to tell immediately wher
 #+END_SRC
 
 ** Quickly alternate buffers
-You know =alt-tab=? This is (literally) alt-tab for emacs buffers but without the ability to cycle through the buffers by holding down =alt= and smashing =tab=; this is not a drawback as this functionality is super quick if you're alternating two buffers while you should use =C-c b= anyway to switch to "further away" buffers.
+You know =alt-tab=? This is (literally) alt-tab for emacs buffers but without the ability to cycle through the buffers by holding down =alt= and smashing =tab=; this is not a drawback as this functionality is super quick if you're alternating two buffers while you should use =C-x b= anyway to switch to "further away" buffers.
 #+BEGIN_SRC emacs-lisp
   (defun switch-to-last-buffer ()
     "Switch to `other-buffer'."
