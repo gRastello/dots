@@ -178,6 +178,8 @@ The emacs window manager.
 
     (dolist (k '(XF86AudioLowerVolume
 		 XF86AudioRaiseVolume
+		 XF86AudioBrightnessUp
+		 XF86AudioBrightnessDown
 		 XF86PowerOff
 		 XF86AudioMute
 		 XF86AudioPlay
@@ -192,11 +194,16 @@ The emacs window manager.
       (cl-pushnew k exwm-input-prefix-keys))
 
     (exwm-enable))
-#+END_SRC
+    #+END_SRC
 
 Make emacs usable.
 #+BEGIN_SRC emacs-lisp
-  (shell-command "setxkbmap -option ctrl:nocaps -option compose:menu" nil nil)
+  ;; (shell-command "setxkbmap -option ctrl:nocaps -option compose:menu" nil nil)
+  (start-process "setup caps lock and menu key" nil
+		 "setxkbmap"
+		 "-option" "ctrl:nocaps"
+		 "-option" "compose:menu")
+  (start-process "networkmanager applet" nil "nm-applet")
 #+END_SRC
 
 * Packages
