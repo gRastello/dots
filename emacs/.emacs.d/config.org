@@ -78,7 +78,7 @@ You know =alt-tab=? This is (literally) alt-tab for emacs buffers but without th
     (interactive)
     (switch-to-buffer nil))
 
-  (global-set-key (kbd "M-<tab>") #'switch-to-last-buffer)
+  (global-set-key (kbd "M-<tab>") #'switch-to-last-buffer)n
 #+END_SRC
 
 ** Sane buffer killing
@@ -330,7 +330,6 @@ A trinity of minibuffer utility.
   (use-package ivy
     :ensure t
     :config
-    (setq ivy-use-virtual-buffers t)
     (setq ivy-recursive-minibuffer t)
     (setq ivy-use-selectable-prompt t)
     :init
@@ -338,6 +337,8 @@ A trinity of minibuffer utility.
 
   (use-package counsel
     :ensure t
+    :bind
+    ("C-x C-b" . counsel-switch-buffer-other-window)
     :init
     (counsel-mode 1))
 
