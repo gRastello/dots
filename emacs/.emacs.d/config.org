@@ -5,10 +5,12 @@
 This is my Emacs. There are many like it, but this one is mine.
 #+END_QUOTE
 
-I've build countless Emacs from scratch, this is the latest one. Heavily inspired by [[https://github.com/snackon/Witchmacs][Witchmacs]] (I've shamelessly copied the org-file layout and a bunch of packages (and maybe even descriptions of packages)) but of course way more tailored to my needs (indeed this is not a configuration for "public use" like Witchmacs is). I even use the Witchmacs theme (with slight modifications).
+I've build countless Emacs(es) configurations from scratch, this is the latest one. Heavily inspired by [[https://github.com/snackon/Witchmacs][Witchmacs]] (I've shamelessly copied the org-file layout and a bunch of packages (and maybe even descriptions of packages)) but of course way more tailored to my needs (indeed this is not a configuration for "public use" like Witchmacs is). I even use the Witchmacs theme (with slight modifications).
+
+Works best with some non-intrusive window manager (key-wise) so you may have to adjust some of the window manager's key combinations in order to use this configuration as-is.
 
 * Quality of Life
-Let's face it: some things of default Emacs are just annoying. Here we try to fix some.
+Let's face it: some things of default Emacs are just annoying. Here we try to fix some and add other little (but big) things.
 
 ** Backups
 I have having backup files all over my directories, but it also happens that sometimes I'm stupid enough to delete some very important non version-controlled file, so I like backups in the end. Just put them in a dedicated folder.
@@ -20,7 +22,7 @@ I have having backup files all over my directories, but it also happens that som
 	kept-old-versions      3)
 #+END_SRC
 
-** Conservative scrolling.
+** Conservative scrolling
 #+BEGIN_SRC emacs-lisp
   (setq scroll-conservatively 100)
 #+END_SRC
@@ -66,6 +68,17 @@ It helps to be able to quickly type them and to be able to tell immediately wher
 			      (?\" . ?\")
 			      ))
   (electric-pair-mode t)
+#+END_SRC
+
+** Quickly alternate buffers
+You know =alt-tab=? This is (literally) alt-tab for emacs buffers but without the ability to cycle through the buffers by holding down =alt= and smashing =tab=; this is not a drawback as this functionality is super quick if you're alternating two buffers while you should use =C-c b= anyway to switch to "further away" buffers.
+#+BEGIN_SRC emacs-lisp
+  (defun switch-to-last-buffer ()
+    "Switch to `other-buffer'."
+    (interactive)
+    (switch-to-buffer nil))
+
+  (global-set-key (kbd "M-<tab>") #'switch-to-last-buffer)
 #+END_SRC
 
 ** Sane buffer killing
