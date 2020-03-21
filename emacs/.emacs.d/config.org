@@ -222,13 +222,6 @@ Make emacs usable by setting up caps lock to work as control. Also start the net
 * Packages
 This is why you use Emacs.
 
-** =async=
-Use asynchronous processes when possible.
-#+BEGIN_SRC emacs-lisp
-  (use-package async
-    :ensure t)
-#+END_SRC
-
 ** =abbrev-mode=
 I used yasnippet for some time and now I fancy a change. =abbrev-mode= is quite cool but it isn't flexible enough; combining it with =skeleton-mode= is good but I wasn't able to get rid of some annoying behavior (you know those little things that aren't really a big deal but make you go insane? That.). In the end the solution I've found is quite simple: using elisp functions instead of skeletons. It is a little more painful to create new snippets, but it makes things as customizable as they can get.
 
@@ -295,6 +288,13 @@ Specific snippets for various modes and purposes and abbrev tables for them.
   (define-abbrev-table 'emacs-lisp-mode-abbrev-table
     '(("f"  "" snippet/lisp/defun)
       ("fi" "" snippet/lisp/defun-interactive)))
+#+END_SRC
+
+** =async=
+Use asynchronous processes when possible.
+#+BEGIN_SRC emacs-lisp
+  (use-package async
+    :ensure t)
 #+END_SRC
 
 ** =auto-package-update=
@@ -400,6 +400,13 @@ The comfiest way to use =git=.
     (spaceline-toggle-line-on)
 
     (spaceline-helm-mode))
+#+END_SRC
+
+** =rainbow-mode=
+This sometimes is really useful.
+#+BEGIN_SRC emacs-lisp
+  (use-package rainbow-mode
+    :ensure t)
 #+END_SRC
 
 ** =which-key=
