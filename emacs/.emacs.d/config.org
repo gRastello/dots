@@ -78,7 +78,7 @@ You know =alt-tab=? This is (literally) alt-tab for emacs buffers but without th
     (interactive)
     (switch-to-buffer nil))
 
-  (global-set-key (kbd "M-<tab>") #'switch-to-last-buffer)n
+  (global-set-key (kbd "M-<tab>") #'switch-to-last-buffer)
 #+END_SRC
 
 ** Sane buffer killing
@@ -148,7 +148,9 @@ The emacs window manager.
     (defun exwm/rename-current-buffer ()
       "Rename the current EXWM buffer with the window's class name."
       (interactive)
-      (exwm-workspace-rename-buffer exwm-class-name))
+      (exwm-workspace-rename-buffer (concat "*X "
+					    exwm-class-name
+					    "*")))
     (add-hook 'exwm-manage-finish-hook #'exwm/rename-current-buffer)
 
     ;; Simulation keys and stuff.
