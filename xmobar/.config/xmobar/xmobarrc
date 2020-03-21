@@ -1,0 +1,30 @@
+Config { 
+   -- appearance
+     font        = "xft:Source Code Pro:size=10"
+   , bgColor     = "#262626"
+   , fgColor     = "#F8F8F2"
+   , position    = Top
+   , border      = BottomB
+   , borderColor = "#646464"
+
+   -- layout
+   , sepChar  = "%"
+   , alignSep = "}{"
+   , template = " %corona% } %date% { %volume% · %brightness% · %bat% "
+
+   -- general behavior
+   , lowerOnStart     = True
+   , hideOnStart      = False   
+   , allDesktops      = True    
+   , overrideRedirect = True    
+   , pickBroadest     = False   
+   , persistent       = True    
+
+   , commands = [
+          Run Date "%F (%a) %H:%M" "date" 10
+	, Run Com "sh" ["-c", "~/scripts/bar/corona"] "corona" 3600
+	, Run Com "sh" ["-c", "~/scripts/bar/battery"] "bat" 15
+	, Run Com "sh" ["-c", "~/scripts/bar/brightness"] "brightness" 5
+	, Run Com "sh" ["-c", "~/scripts/bar/volume"] "volume" 5
+	]
+   }

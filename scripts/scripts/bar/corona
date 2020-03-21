@@ -5,4 +5,4 @@
 
 grep "Italy" $HOME/.cache/corona |
     sed 's/\x1B\[[0-9;]*[a-zA-Z]//g; s/\s*//g; s/║//g; s/│/;/g' |
-    awk -F';' '{print "👑 " $3 " (" $9 "); 💀 " $5 " (" $7 " %)"}'
+    awk -F';' '{print "CORONA: " $3 " infected (" $9 "); " $5 " dead (" $7 " %)"}'

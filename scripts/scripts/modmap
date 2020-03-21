@@ -1,4 +1,0 @@
-keysym h = Left
-keysym l = Right
-keysym k = Up
-keysym j = Down
