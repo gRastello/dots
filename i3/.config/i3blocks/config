@@ -2,6 +2,10 @@
 separator_block_width=15
 markup=pango
 
+[corona]
+command=~/scripts/bar/corona
+interval=5
+
 [brightness]
 command=~/scripts/bar/brightness
 interval=5
