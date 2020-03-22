@@ -348,7 +348,7 @@ Completion is so useful.
     (define-key company-active-map (kbd "SPC") #'company-abort)
 
     (add-hook 'prog-mode-hook  #'company-mode)
-    (add-hook 'latex-mode-hook #'company-mode))
+    (add-hook 'LaTeX-mode-hook #'company-mode))
 #+END_SRC
 
 ** =elfeed=
