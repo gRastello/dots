@@ -21,10 +21,10 @@ Config {
    , persistent       = True    
 
    , commands = [
-          Run Date "%F (%a) %H:%M" "date" 10
-	, Run Com "sh" ["-c", "~/scripts/bar/corona"] "corona" 3600
-	, Run Com "sh" ["-c", "~/scripts/bar/battery"] "bat" 15
-	, Run Com "sh" ["-c", "~/scripts/bar/brightness"] "brightness" 5
-	, Run Com "sh" ["-c", "~/scripts/bar/volume"] "volume" 5
+          Run Date "%F (%a) %H:%M"                        "date"       10
+	, Run Com "sh" ["-c", "~/scripts/bar/corona"]     "corona"     36000
+	, Run Com "sh" ["-c", "~/scripts/bar/battery"]    "bat"        150
+	, Run Com "sh" ["-c", "~/scripts/bar/brightness"] "brightness" 50
+	, Run Com "sh" ["-c", "~/scripts/bar/volume"]     "volume"     50
 	]
    }
