@@ -162,16 +162,16 @@ The emacs window manager.
 					   "set-sink-mute"
 					   "@DEFAULT_SINK@"
 					   "toggle")))
-  
+
     ;; For some reason not all global keybindings work while in EXWM windows, so I
     ;; put them here.
-    
+
     ;; Rename X windows' buffers sensibly.
     (defun exwm/rename-current-buffer ()
       "Rename the current EXWM buffer with the window's class name."
       (interactive)
       (exwm-workspace-rename-buffer (concat "*X "
-					    exwm-class-name
+					    exwm-class-name " - " exwm-title
 					    "*")))
     (add-hook 'exwm-manage-finish-hook #'exwm/rename-current-buffer)
 
