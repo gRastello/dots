@@ -1,7 +1,6 @@
 #!/bin/sh
 
-[ "$(stat -c %y ~/.cache/corona 2> /dev/null | cut -d' ' -f1)" != "$(date '+%Y-%m-%d')" ] &&
-    curl -s https://corona-stats.online/Italy > $HOME/.cache/corona
+curl -s https://corona-stats.online/Italy > /tmp/corona && cp /tmp/corona $HOME/.cache/corona
 
 grep "Italy" $HOME/.cache/corona |
     sed 's/\x1B\[[0-9;]*[a-zA-Z]//g; s/\s*//g; s/║//g; s/│/;/g' |
