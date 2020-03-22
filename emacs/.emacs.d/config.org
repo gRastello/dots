@@ -335,6 +335,21 @@ I've never really used this, but I guess I'll give it a try.
     ("M-s" . avy-goto-char))
 #+END_SRC
 
+** =company-mode=
+Completion is so useful.
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :ensure t
+    :config
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 3))
+
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "SPC") #'company-abort)
+
+    (add-hook 'prog-mode-hook  #'company-mode))
+#+END_SRC
+
 ** =elfeed=
 It's the best feed readed for Emacs.
 #+BEGIN_SRC emacs-lisp
