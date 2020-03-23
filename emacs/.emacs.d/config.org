@@ -169,8 +169,15 @@ The emacs window manager.
 					   "@DEFAULT_SINK@"
 					   "toggle")))
 
-    ;; For some reason not all global keybindings work while in EXWM windows, so I
-    ;; put them here.
+    ;; Screenshot.
+    (defun exwm/screenshot ()
+      "Take a fullscreen screenshot."
+      (interactive)
+      (start-process "screenshot" nil "import"
+		     "-window" "root"
+		     (concat (getenv "HOME")
+			     "/pictures/screenshots/last-screenshot.png")))
+    (exwm-input-set-key (kbd "<print>") #'exwm/screenshot)
 
     ;; Rename X windows' buffers sensibly.
     (defun exwm/rename-current-buffer ()
