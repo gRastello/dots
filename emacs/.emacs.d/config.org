@@ -359,7 +359,9 @@ Completion is so useful.
     (setq company-minimum-prefix-length 3))
 
   (with-eval-after-load 'company
-    (define-key company-active-map (kbd "SPC") #'company-abort)
+    (define-key company-active-map (kbd "SPC") #'(lambda () (interactive)
+						   (company-abort)
+						   (insert " ")))
 
     (add-hook 'prog-mode-hook                #'company-mode)
     (add-hook 'LaTeX-mode-hook               #'company-mode)
