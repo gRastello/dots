@@ -4,5 +4,5 @@ curl -s https://corona-stats.online/Italy > /tmp/corona && cp /tmp/corona $HOME/
 
 grep "Italy" $HOME/.cache/corona |
     sed 's/\x1B\[[0-9;]*[a-zA-Z]//g; s/\s*//g; s/║//g; s/│/;/g' |
-    awk -F';' '{print "CORONA: " $3 " infected (" $9 "); " $5 " dead (" $7 " %)"}'
+    awk -F';' '{print "CORONA: " $3 " infected (" $6 "); " $4 " dead (" $5 " %)"}'
 
