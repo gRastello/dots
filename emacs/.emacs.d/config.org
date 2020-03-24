@@ -423,7 +423,7 @@ A trinity of minibuffer utility.
 ** Latex
 The best document preparation system with the most painful syntax of all.
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'latex-mode-hook 'flyspell-mode)
+  (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 #+END_SRC
 
 ** =magit=
