@@ -275,9 +275,16 @@ Specific snippets for various modes and purposes and abbrev tables for them.
       (previous-line)
       (indent-for-tab-command)))
 
+  (defun snippet/latex/ar ()
+    "Snippet for tikzcd's `\ar' macro."
+    (interactive)
+    (insert "\\ar[, \"\"]")
+    (backward-char 5))
+
   (define-abbrev-table 'latex-mode-abbrev-table
-    '(("m" "" snippet/math-environment)
-      ("e" "" snippet/latex/environment)))
+    '(("m"  "" snippet/math-environment)
+      ("e"  "" snippet/latex/environment)
+      ("ar" "" snippet/latex/ar)))
 #+END_SRC
 
 **** Org-mode
