@@ -528,7 +528,7 @@ It's as awesome as people say.
 	org-agenda-todo-ignore-scheduled  'future)
 #+END_SRC
 
-A better (faster) way to move headers from =Inbox.org= to =Tasks.org=.
+A better (faster) way to mark headers in =Inbox.org= as TODO tomorrow and move them to =Tasks.org=.
 #+BEGIN_SRC emacs-lisp
   (defun refile-to (file heading)
     "Refile current heading to `file` `header`."
@@ -547,4 +547,10 @@ A better (faster) way to move headers from =Inbox.org= to =Tasks.org=.
     (org-mark-ring-goto))
 
   (define-key org-mode-map (kbd "C-c t") #'org-todo-and-tomorrow)
+#+END_SRC
+
+Some useful bindings that make bookkeeping easier.
+#+BEGIN_SRC emacs-lisp
+  (define-key org-mode-map (kbd "C-<right>") #'org-increase-number-at-point)
+  (define-key org-mode-map (kbd "C-<left>")  #'org-decrease-number-at-point)
 #+END_SRC
