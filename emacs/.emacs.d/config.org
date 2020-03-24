@@ -506,7 +506,8 @@ It's as awesome as people say.
   (setq org-default-inbox-file    "~/org/Inbox.org"
 	org-default-incubate-file "~/org/Incubate.org"
 	org-default-tasks-file    "~/org/Tasks.org"
-	org-default-martin-file   "~/org/Martin.org")
+	org-default-martin-file   "~/org/Martin.org"
+	org-default-media-file    "~/org/Media.org")
 
   (setq org-agenda-files (list org-default-tasks-file
 			       org-default-martin-file))
