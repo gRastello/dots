@@ -461,6 +461,15 @@ The comfiest way to use =git=.
     (spaceline-helm-mode))
 #+END_SRC
 
+** =pdf-tools=
+Pdfs are everywhere and being able to work with them within Emacs is fantastic.
+#+BEGIN_SRC emacs-lisp
+  (use-package pdf-tools
+    :ensure t
+    :init
+    (pdf-tools-install))
+#+END_SRC
+
 ** =rainbow-mode=
 This sometimes is really useful.
 #+BEGIN_SRC emacs-lisp
