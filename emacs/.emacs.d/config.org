@@ -12,12 +12,6 @@ Works best with some non-intrusive window manager (key-wise) so you may have to 
 * Quality of Life
 Let's face it: some things of default Emacs are just annoying. Here we try to fix some and add other little (but big) things.
 
-** Follow symbolic links to version-controlled files
-Basically all my dotfiles are contained in a =~/dotfiles= directory and symlinked to their appropriate place in the filesystem. I want to be able to edit them with =C-x C-f= without having Emacs ask me if I want to follow the symlink or not. Always follow them.
-#+BEGIN_SRC emacs-lisp
-  (setq vc-follow-symlinks t)
-#+END_SRC
-
 ** Backups
 I have having backup files all over my directories, but it also happens that sometimes I'm stupid enough to delete some very important non version-controlled file, so I like backups in the end. Just put them in a dedicated folder.
 #+BEGIN_SRC emacs-lisp
