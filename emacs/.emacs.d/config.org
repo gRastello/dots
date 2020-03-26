@@ -129,40 +129,6 @@ The emacs window manager.
 			  (interactive (list (read-shell-command "$ ")))
 			  (start-process-shell-command command nil command)))
 
-    ;; Volume and brightness control.
-    (defun exwm/change-brightness (direction n)
-      "Change screen brightness by `n' in `direction'."
-      (interactive)
-      (let ((d (if (eq direction 'up) "-A" "-U")))
-	(start-process "change-brightness" nil "light" d n)))
-    (exwm-input-set-key (kbd "<XF86MonBrightnessUp>")
-			#'(lambda () (interactive)
-			    (exwm/change-brightness 'up "5")))
-    (exwm-input-set-key (kbd "<XF86MonBrightnessDown>")
-			#'(lambda () (interactive)
-			    (exwm/change-brightness 'down "5")))
-
-    (defun exwm/change-volume (direction n)
-      "Change volume by `n' in `direction'."
-      (interactive)
-      (let ((d (if (eq direction 'up) "+" "-")))
-	(start-process "change-volume" nil "pactl"
-		       "set-sink-volume"
-		       "@DEFAULT_SINK@"
-		       (concat d n "%"))))
-    (exwm-input-set-key (kbd "<XF86AudioRaiseVolume>")
-			#'(lambda () (interactive)
-			    (exwm/change-volume 'up "5")))
-    (exwm-input-set-key (kbd "<XF86AudioLowerVolume>")
-			#'(lambda () (interactive)
-			    (exwm/change-volume 'down "5")))
-    (exwm-input-set-key (kbd "<XF86AudioMute>")
-			#'(lambda () (interactive)
-			    (start-process "toggle-mute" nil "pactl"
-					   "set-sink-mute"
-					   "@DEFAULT_SINK@"
-					   "toggle")))
-
     ;; Screenshot.
     (defun exwm/screenshot ()
       "Take a fullscreen screenshot."
@@ -393,6 +359,19 @@ It's the best feed readed for Emacs.
     ("C-c f" . elfeed-and-update))
 #+END_SRC
 
+** =emms=
+Emacs Multi Media System; just a way to play some ambient music while working. 
+#+BEGIN_SRC emacs-lisp
+  (use-package emms
+    :ensure t
+    :config
+    (require 'emms-setup)
+    (emms-all)
+    (emms-default-players)
+
+    (setq emms-source-file-default-directory "~/music/"))
+#+END_SRC
+
 ** =eshell=
 The emacs shell, cool for running some commands. Not ideal for heavy cli work but you usually don't need that with Emacs.
 #+BEGIN_SRC emacs-lisp
@@ -411,6 +390,67 @@ Useful repl-interaction for Haskell and a bunch of other things.
     (eval-after-load 'haskell-mode '(progn
 				      (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
 				      (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch))))
+#+END_SRC
+
+** =hydra=
+For mythologic bindings.
+#+BEGIN_SRC emacs-lisp
+  (use-package hydra
+    :ensure t
+    :config
+    (defhydra hydra-zoom ()
+      "The zoom example"
+      ("g" text-scale-increase "in")
+      ("l" text-scale-decrease "out")
+
+      ("q" nil "quit"))
+    (global-set-key (kbd "C-c z") #'hydra-zoom/body)
+
+    (defun hydra-volume/change-volume (direction n)
+      "Change volume by `n' in `direction'."
+      (interactive)
+      (let ((d (if (eq direction 'up) "+" "-")))
+	(start-process "change-volume" nil "pactl"
+		       "set-sink-volume"
+		       "@DEFAULT_SINK@"
+		       (concat d n "%"))))
+
+    (defhydra hydra-volume ()
+      "Volume hydra:"
+      ("p" (lambda () (interactive) (hydra-volume/change-volume 'up   "5")) "up")
+      ("n" (lambda () (interactive) (hydra-volume/change-volume 'down "5")) "down")
+      ("q" nil "quit"))
+    (global-set-key (kbd "C-c v") #'hydra-volume/body)
+
+    (defun hydra-brightness/change-brightness (direction n)
+	"Change screen brightness by `n' in `direction'."
+	(interactive)
+	(let ((d (if (eq direction 'up) "-A" "-U")))
+	  (start-process "change-brightness" nil "light" d n)))
+
+    (defhydra hydra-brightness ()
+      "Brightness hydra:"
+      ("p" (lambda () (interactive) (hydra-brightness/change-brightness 'up "5")) "up")
+      ("n" (lambda () (interactive) (hydra-brightness/change-brightness 'down "5")) "down")
+      ("q" nil "quit"))
+    (global-set-key (kbd "C-c b") #'hydra-brightness/body)
+
+    (defhydra hydra-emms ()
+      "
+  EMMS hydra
+  ^^^^^^-------------
+  [_p_]: pause/unpause   [_F_]: play file
+  [_f_]: next track
+  [_b_]: previous track
+
+  "
+      ("f" emms-next nil)
+      ("b" emms-previous nil)
+      ("p" emms-pause nil)
+      ("F" emms-play-file nil :exit t)
+
+      ("q" nil "quit"))
+    (global-set-key (kbd "C-c m") #'hydra-emms/body))
 #+END_SRC
 
 ** =ivy=, =counsel= and =swiper=
