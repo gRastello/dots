@@ -110,7 +110,7 @@ This is probably the most annoying thing of all.
 
 * EXWM
 The emacs window manager.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC nothing
   (use-package exwm
     :ensure t
     :config
@@ -192,7 +192,7 @@ The emacs window manager.
     #+END_SRC
 
 Make emacs usable by setting up caps lock to work as control. Also start the networkmanager applet. Yes, this is basically a startup script that I could move to a shell script.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC nothing
   ;; (shell-command "setxkbmap -option ctrl:nocaps -option compose:menu" nil nil)
   (start-process "setup caps lock and menu key" nil
 		 "setxkbmap"
