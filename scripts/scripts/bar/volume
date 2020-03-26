@@ -7,4 +7,4 @@ echo "$volstat" | grep "\[off\]" >/dev/null && mute="(muted) "
 
 vol=$(echo "$volstat" | grep -o "\[[0-9]\+%\]" | sed 's/[^0-9]*//g' | head -n 1)
 
-printf "VOL: %s%s%%\n" "$mute" "$vol"
+printf "🎧 %s%s %%\n" "$mute" "$vol"
