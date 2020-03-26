@@ -398,14 +398,6 @@ For mythologic bindings.
   (use-package hydra
     :ensure t
     :config
-    (defhydra hydra-zoom ()
-      "The zoom example"
-      ("g" text-scale-increase "in")
-      ("l" text-scale-decrease "out")
-
-      ("q" nil "quit"))
-    (global-set-key (kbd "C-c z") #'hydra-zoom/body)
-
     (defun hydra-volume/change-volume (direction n)
       "Change volume by `n' in `direction'."
       (interactive)
