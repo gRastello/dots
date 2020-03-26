@@ -47,15 +47,6 @@ You're not 3yo anymore.
   (scroll-bar-mode -1)
 #+END_SRC
 
-** Easy resize
-The default keybindings to resize windows are cancer.
-#+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "s-C-b") 'shrink-window-horizontally)
-  (global-set-key (kbd "s-C-f") 'enlarge-window-horizontally)
-  (global-set-key (kbd "s-C-n") 'shrink-window)
-  (global-set-key (kbd "s-C-p") 'enlarge-window)
-#+END_SRC
-
 ** Parenthesis
 It helps to be able to quickly type them and to be able to tell immediately where matching pairs are located.
 #+BEGIN_SRC emacs-lisp
@@ -412,7 +403,17 @@ For mythologic bindings.
       ("F" emms-play-file nil :exit t)
 
       ("q" nil nil))
-    (global-set-key (kbd "C-c m") #'hydra-emms/body))
+    (global-set-key (kbd "C-c m") #'hydra-emms/body)
+
+    (defhydra hydra-resize ()
+      "
+  Rezise hydra
+  "
+      ("b" shrink-window-horizontally nil)
+      ("f" enlarge-window-horizontally nil)
+      ("n" shrink-window nil)
+      ("p" enlarge-window nil))
+    (global-set-key (kbd "C-c r") #'hydra-resize/body))
 #+END_SRC
 
 ** =ivy=, =counsel= and =swiper=
