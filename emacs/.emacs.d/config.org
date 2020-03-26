@@ -398,62 +398,6 @@ For mythologic bindings.
   (use-package hydra
     :ensure t
     :config
-    (defhydra hydra-launcher (:exit t)
-      "
-  ^Programs^        ^Bookmarks^
-  ^^^^-------------------------
-  _b_: brave        _u_: My Unito
-  _t_: Telegram     _m_: Moodle
-  ^ ^               _g_: githubg
-  "
-      ("b" (lambda () (interactive) (start-process "brave" nil "brave-browser")) nil)
-      ("t" (lambda () (interactive) (start-process "telegram" nil "telegram-desktop")) nil)
-      ("u" (browse-url "https://my.unito.it/") nil)
-      ("m" (browse-url "https://math.i-learn.unito.it/") nil)
-      ("g" (browse-url "https://github.com/") nil)
-
-      ("q" nil nil))
-    (global-set-key (kbd "C-c l") #'hydra-launcher/body)
-
-    (defun hydra-volume/change-volume (direction n)
-      "Change volume by `n' in `direction'."
-      (interactive)
-      (let ((d (if (eq direction 'up) "+" "-")))
-	(start-process "change-volume" nil "pactl"
-		       "set-sink-volume"
-		       "@DEFAULT_SINK@"
-		       (concat d n "%"))))
-
-    (defhydra hydra-volume ()
-      "
-  Volume hydra
-  ------------
-  _p_: up
-  _n_: down
-  "
-      ("p" (lambda () (interactive) (hydra-volume/change-volume 'up   "5")) nil)
-      ("n" (lambda () (interactive) (hydra-volume/change-volume 'down "5")) nil)
-      ("q" nil nil))
-    (global-set-key (kbd "C-c v") #'hydra-volume/body)
-
-    (defun hydra-brightness/change-brightness (direction n)
-      "Change screen brightness by `n' in `direction'."
-      (interactive)
-      (let ((d (if (eq direction 'up) "-A" "-U")))
-	(start-process "change-brightness" nil "light" d n)))
-
-    (defhydra hydra-brightness ()
-      "
-  Brightness hydra
-  ----------------
-  _p_: up
-  _n_: down
-  "
-      ("p" (lambda () (interactive) (hydra-brightness/change-brightness 'up "5")) nil)
-      ("n" (lambda () (interactive) (hydra-brightness/change-brightness 'down "5")) nil)
-      ("q" nil nil))
-    (global-set-key (kbd "C-c b") #'hydra-brightness/body)
-
     (defhydra hydra-emms ()
       "
   EMMS hydra
