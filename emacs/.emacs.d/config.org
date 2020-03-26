@@ -375,6 +375,20 @@ It's the best feed readed for Emacs.
       (interactive)
       (elfeed)
       (elfeed-update))
+
+    ;; Youtube streaming.
+    (defun elfeed-youtube-stream ()
+      "Stream a youtube (probably even other site's) video in mpv."
+      (interactive)
+      (let* ((entry (elfeed-search-selected :single))
+	     (link  (elfeed-entry-link entry)))
+	(start-process "elfeed youtube streaming" nil
+		       "mpv" link
+		       "--ytdl-format=bestvideo[height<=?720]+bestaudio/best")))
+
+    ;; Elfeed keybindings.
+    (define-key elfeed-search-mode-map "y" #'elfeed-youtube-stream)
+
     :bind
     ("C-c f" . elfeed-and-update))
 #+END_SRC
