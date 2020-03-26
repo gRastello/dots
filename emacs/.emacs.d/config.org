@@ -405,7 +405,6 @@ For mythologic bindings.
   _b_: brave        _u_: My Unito
   _t_: Telegram     _m_: Moodle
   ^ ^               _g_: githubg
-
   "
       ("b" (lambda () (interactive) (start-process "brave" nil "brave-browser")) nil)
       ("t" (lambda () (interactive) (start-process "telegram" nil "telegram-desktop")) nil)
@@ -413,7 +412,7 @@ For mythologic bindings.
       ("m" (browse-url "https://math.i-learn.unito.it/") nil)
       ("g" (browse-url "https://github.com/") nil)
 
-      ("q" nil "quit"))
+      ("q" nil nil))
     (global-set-key (kbd "C-c l") #'hydra-launcher/body)
 
     (defun hydra-volume/change-volume (direction n)
@@ -426,10 +425,15 @@ For mythologic bindings.
 		       (concat d n "%"))))
 
     (defhydra hydra-volume ()
-      "Volume hydra:"
-      ("p" (lambda () (interactive) (hydra-volume/change-volume 'up   "5")) "up")
-      ("n" (lambda () (interactive) (hydra-volume/change-volume 'down "5")) "down")
-      ("q" nil "quit"))
+      "
+  Volume hydra
+  ------------
+  _p_: up
+  _n_: down
+  "
+      ("p" (lambda () (interactive) (hydra-volume/change-volume 'up   "5")) nil)
+      ("n" (lambda () (interactive) (hydra-volume/change-volume 'down "5")) nil)
+      ("q" nil nil))
     (global-set-key (kbd "C-c v") #'hydra-volume/body)
 
     (defun hydra-brightness/change-brightness (direction n)
@@ -439,27 +443,31 @@ For mythologic bindings.
 	(start-process "change-brightness" nil "light" d n)))
 
     (defhydra hydra-brightness ()
-      "Brightness hydra:"
-      ("p" (lambda () (interactive) (hydra-brightness/change-brightness 'up "5")) "up")
-      ("n" (lambda () (interactive) (hydra-brightness/change-brightness 'down "5")) "down")
-      ("q" nil "quit"))
+      "
+  Brightness hydra
+  ----------------
+  _p_: up
+  _n_: down
+  "
+      ("p" (lambda () (interactive) (hydra-brightness/change-brightness 'up "5")) nil)
+      ("n" (lambda () (interactive) (hydra-brightness/change-brightness 'down "5")) nil)
+      ("q" nil nil))
     (global-set-key (kbd "C-c b") #'hydra-brightness/body)
 
     (defhydra hydra-emms ()
       "
   EMMS hydra
   ----------
-  [_p_]: pause/unpause      [_F_]: play file
-  [_f_]: next track
-  [_b_]: previous track
-
+  _p_: pause/unpause      _F_: play file
+  _f_: next track
+  _b_: previous track
   "
       ("f" emms-next nil)
       ("b" emms-previous nil)
       ("p" emms-pause nil)
       ("F" emms-play-file nil :exit t)
 
-      ("q" nil "quit"))
+      ("q" nil nil))
     (global-set-key (kbd "C-c m") #'hydra-emms/body))
 #+END_SRC
 
