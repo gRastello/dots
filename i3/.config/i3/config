@@ -79,7 +79,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # Move things to appropriate workspaces.
 for_window [class="Gimp"]     move workspace $ws10
 for_window [class="Telegram"] move workspace $ws2
-for_window [class="mpv"] move workspace $ws9
+for_window [class="mpv"]      move workspace $ws9
 
 # Screenshot.
 bindsym Print exec import -window root ~/pictures/screenshots/last-screenshot.png
