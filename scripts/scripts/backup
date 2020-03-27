@@ -8,7 +8,6 @@ BACKUPDIRS=("$HOME/org"
 	    "$HOME/src"
 	    "$HOME/documents"
 	    "$HOME/dotfiles"
-	    "$HOME/quicklisp"
 	    "$HOME/podcast")
 
 for dir in "${BACKUPDIRS[@]}"; do
