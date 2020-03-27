@@ -1,6 +1,7 @@
 #!/bin/sh
 
 BOOKMARKFILE="$HOME/.bookmarks"
+BROWSER="icecat"
 
 name=$(cut -d';' -f1 "$BOOKMARKFILE" | dmenu -i -p "Bookmark:")
-grep "$name" "$BOOKMARKFILE" | cut -d';' -f2 | xargs xdg-open
+grep "$name" "$BOOKMARKFILE" | cut -d';' -f2 | xargs "$BROWSER"
