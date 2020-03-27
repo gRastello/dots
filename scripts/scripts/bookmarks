@@ -1,0 +1,6 @@
+#!/bin/sh
+
+BOOKMARKFILE="$HOME/.bookmarks"
+
+name=$(cut -d';' -f1 "$BOOKMARKFILE" | dmenu -i -p "Bookmark:")
+grep "$name" "$BOOKMARKFILE" | cut -d';' -f2 | xargs xdg-open
