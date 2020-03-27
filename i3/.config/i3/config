@@ -27,8 +27,8 @@ bindsym $mod+n focus left
 bindsym $mod+p focus right
 
 # Move focused window.
-bindsym $mod+Shift+p move left
-bindsym $mod+Shift+n move right
+bindsym $mod+Shift+p move right
+bindsym $mod+Shift+n move left
 
 # Fix layout.
 workspace_layout tabbed
