@@ -109,10 +109,6 @@ bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+t exec killall telegram-desktop
 bindsym $mod+g exec gimp
 
-# Vim to standard map
-bindsym $mod+v       exec $HOME/scripts/vimmap
-bindsym $mod+Shift+v exec $HOME/scripts/stdmap
-
 # Startup.
 exec --no-startup-id nm-applet
 exec feh --bg-fill ~/dotfiles/wallpapers/nu.png
