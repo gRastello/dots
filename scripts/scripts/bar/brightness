@@ -13,4 +13,4 @@ else
     symbol="🌒"
 fi
 
-printf "%s %s %%\n" "$symbol" "$brightness"
+printf "%s %s%%\n" "$symbol" "$brightness"

@@ -26,4 +26,4 @@ fi
 
 printf "🔋 "
 printf "<span color='%s'>%s</span>" "$status_color" "$status" 
-printf "<span color='%s'>%s</span> %%\n" "$capacity_color" "$capacity"
+printf "<span color='%s'>%s</span>%%\n" "$capacity_color" "$capacity"
