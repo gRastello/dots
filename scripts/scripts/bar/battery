@@ -24,6 +24,6 @@ else
     status="(Discharging) "
 fi
 
-printf "🔋 "
+printf "🔋"
 printf "<span color='%s'>%s</span>" "$status_color" "$status" 
 printf "<span color='%s'>%s</span>%%\n" "$capacity_color" "$capacity"
