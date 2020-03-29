@@ -105,7 +105,7 @@ bar {
 
 # Shortcuts.
 bindsym $mod+e exec emacs
-bindsym $mod+w exec icecat
+bindsym $mod+w exec brave-browser
 bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+t exec killall telegram-desktop
 bindsym $mod+g exec gimp
