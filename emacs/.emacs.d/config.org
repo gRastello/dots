@@ -416,39 +416,6 @@ Useful repl-interaction for Haskell and a bunch of other things.
 				      (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch))))
 #+END_SRC
 
-** =hydra=
-For mythologic bindings.
-#+BEGIN_SRC emacs-lisp
-  (use-package hydra
-    :ensure t
-    :config
-    (defhydra hydra-emms ()
-      "
-  EMMS hydra
-  ----------
-  _p_: pause/unpause      _F_: play file
-  _f_: next track
-  _b_: previous track
-  "
-      ("f" emms-next nil)
-      ("b" emms-previous nil)
-      ("p" emms-pause nil)
-      ("F" emms-play-file nil :exit t)
-
-      ("q" nil nil))
-    (global-set-key (kbd "C-c m") #'hydra-emms/body)
-
-    (defhydra hydra-resize ()
-      "
-  Rezise hydra
-  "
-      ("b" shrink-window-horizontally nil)
-      ("f" enlarge-window-horizontally nil)
-      ("n" shrink-window nil)
-      ("p" enlarge-window nil))
-    (global-set-key (kbd "C-c r") #'hydra-resize/body))
-#+END_SRC
-
 ** =ivy=, =counsel= and =swiper=
 A trinity of minibuffer utility.
 #+BEGIN_SRC emacs-lisp
