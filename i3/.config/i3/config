@@ -112,10 +112,12 @@ bindsym $mod+w exec chromium-browser-privacy
 bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+t exec killall telegram-desktop
 bindsym $mod+g exec gimp
+bindsym $mod+Return exec xdg-open ~/documents/html/panic_page.html
+bindsym $mod+Shift+b exec ~/scripts/setbg
 
 # Startup.
 exec --no-startup-id nm-applet
-exec feh --bg-fill ~/dotfiles/wallpapers/nu.png
+exec ~/scripts/setbg
 exec transmission-daemon
 
 exec setxkbmap -option ctrl:nocaps -option compose:menu
