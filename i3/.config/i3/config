@@ -100,10 +100,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'You pressed the shudown shortcut.' -B 'Yes' 'shutdown now'"
 
 bar {
-        status_command i3blocks
-	font pango:Source Code Pro 10
-	mode dock
-	position top
+  status_command i3blocks
+  font pango:Source Code Pro 10
+  mode dock
+  position top
 }
 
 # Shortcuts.
