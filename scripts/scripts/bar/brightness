@@ -3,14 +3,4 @@
 brg=$(light -G)
 brightness=$(echo "print(math.floor($brg))" | xargs lua -e)
 
-if [ "$brightness" -ge 75 ]; then
-    symbol="🌕"
-elif [ "$brightness" -ge 50 ]; then
-    symbol="🌔"
-elif [ "$brightness" -ge 25 ]; then
-    symbol="🌓"
-else
-    symbol="🌒"
-fi
-
-printf "%s%s%%\n" "$symbol" "$brightness"
+printf "BRG %s%%\n" "$brightness"

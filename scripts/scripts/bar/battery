@@ -4,26 +4,26 @@ capacity=$(cat /sys/class/power_supply/BAT1/capacity) || exit
 status=$(cat /sys/class/power_supply/BAT1/status) || exit
 
 if [ "$capacity" -ge 75 ]; then
-	capacity_color="#00ff00"
+	capacity_color="#00AA00"
 elif [ "$capacity" -ge 50 ]; then
 	capacity_color="#ffffff"
 elif [ "$capacity" -ge 25 ]; then
-	capacity_color="#ffff00"
+	capacity_color="#AA5500"
 else
-	capacity_color="#ff0000"
+	capacity_color="#AA0000"
 fi
 
 if [ "$status" = "Charging" ]; then
-    status_color="#00ff00"
+    status_color="#00AA00"
     status="(Charging) "
 elif [ "$status" = "Full" ]; then
     status_color="#ffffff"
     status=""
 else
-    status_color="#ffff00"
-    status="(Discharging) "
+    status_color="#AA5500"
+    status=" (Discharging) "
 fi
 
-printf "🔋"
+printf "BAT"
 printf "<span color='%s'>%s</span>" "$status_color" "$status" 
 printf "<span color='%s'>%s</span>%%\n" "$capacity_color" "$capacity"
