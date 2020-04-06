@@ -20,7 +20,7 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 # Dmenu bindings.
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run -nb "#c0c0c0" -sf "#c0c0c0" -nf "#000000"
 bindsym $mod+b exec $HOME/scripts/bookmarks
 
 # Change focus.
@@ -107,7 +107,7 @@ client.unfocused #000000 #c0c0c0 #000000 #000000
 bar {
   status_command i3blocks
   font pango:Source Code Pro 10
-  mode dock
+  mode invisible
   position top
   
   colors {
@@ -119,6 +119,9 @@ bar {
   }
 }
 
+bindsym $mod+v       bar mode dock
+bindsym $mod+Shift+v bar mode invisible
+
 # Shortcuts.
 bindsym $mod+e exec emacs
 bindsym $mod+w exec chromium-browser-privacy
@@ -129,7 +132,7 @@ bindsym $mod+Return exec xdg-open ~/documents/html/panic_page.html
 bindsym $mod+Shift+b exec ~/scripts/setbg
 
 # Startup.
-exec --no-startup-id nm-applet
+exec nm-applet
 exec ~/scripts/setbg
 exec transmission-daemon
 
