@@ -21,9 +21,9 @@ elif [ "$status" = "Full" ]; then
     status=""
 else
     status_color="#AA5500"
-    status=" (Discharging) "
+    status="(Discharging) "
 fi
 
-printf "BAT"
+printf "BAT "
 printf "<span color='%s'>%s</span>" "$status_color" "$status" 
 printf "<span color='%s'>%s</span>%%\n" "$capacity_color" "$capacity"
