@@ -92,9 +92,6 @@ bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
 bindsym $mod+Shift+r restart
 
-# The gaps.
-gaps outer 20
-
 # Exit i3 (logs you out of your X session).
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut.' -B 'Yes' 'i3-msg exit'"
 bindsym $mod+Shift+s exec "i3-nagbar -t warning -m 'You pressed the shudown shortcut.' -B 'Yes' 'shutdown now'"
@@ -107,8 +104,7 @@ client.unfocused #000000 #c0c0c0 #000000 #000000
 bar {
   status_command i3blocks
   font pango:Source Code Pro 10
-  mode invisible
-  position top
+  position bottom
   
   colors {
     background #c0c0c0
@@ -118,9 +114,6 @@ bar {
     inactive_workspace #808080 #a0a0a0 #000000
   }
 }
-
-bindsym $mod+v       bar mode dock
-bindsym $mod+Shift+v bar mode invisible
 
 # Shortcuts.
 bindsym $mod+e exec emacs
