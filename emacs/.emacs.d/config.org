@@ -290,7 +290,7 @@ Keep your packages updated and remove some of the garbage that you'll end up cre
 #+END_SRC
 
 ** =avy=
-I've never really used this, but I guess I'll give it a try.
+It is great.
 #+BEGIN_SRC emacs-lisp
   (use-package avy
     :ensure t
