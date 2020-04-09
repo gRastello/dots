@@ -417,7 +417,7 @@ Useful repl-interaction for Haskell and a bunch of other things.
 #+END_SRC
 
 ** =ido= and =smex=
-Builtin completion (for =M-x= too).
+Builtin completion; we download the extra packages =smex=  for =M-x= completion and =ido-completing-read+= to have IDO completion in places that the stardard IDO does not cover (such as the =bookmark-jump= function).
 #+BEGIN_SRC emacs-lisp
   (setq ido-enable-flex-matching t)
   (setq ido-eveywhere t)
@@ -429,6 +429,11 @@ Builtin completion (for =M-x= too).
     (smex-initialize)
     :bind
     ("M-x" . smex))
+
+  (use-package ido-completing-read+
+    :ensure t
+    :init
+    (ido-ubiquitous-mode 1))
 #+END_SRC
 
 ** =ivy=, =counsel= and =swiper=
