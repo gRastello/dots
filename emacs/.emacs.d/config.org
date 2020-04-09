@@ -416,9 +416,24 @@ Useful repl-interaction for Haskell and a bunch of other things.
 				      (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch))))
 #+END_SRC
 
+** =ido= and =smex=
+Builtin completion (for =M-x= too).
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-eveywhere t)
+  (ido-mode 1)
+
+  (use-package smex
+    :ensure t
+    :init
+    (smex-initialize)
+    :bind
+    ("M-x" . smex))
+#+END_SRC
+
 ** =ivy=, =counsel= and =swiper=
 A trinity of minibuffer utility.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC
   (use-package ivy
     :ensure t
     :config
