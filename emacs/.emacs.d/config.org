@@ -477,7 +477,7 @@ The comfiest way to use =git=.
 
 ** Modeline
 # Since I'm basically copying everything from [[https://github.com/snackon/Witchmacs][Witchmacs]] we shall combine =powerline= and =spaceline=.
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC
   (use-package spaceline
     :ensure t
     :config
