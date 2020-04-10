@@ -47,6 +47,26 @@ You're not 3yo anymore.
   (scroll-bar-mode -1)
 #+END_SRC
 
+** Eat/add space at the start of a line
+A little text-editing improvement.
+#+BEGIN_SRC emacs-lisp
+  (defun delete-from-start-of-line (n)
+    "Delete `n' characters from the start of current line without moving the point."
+    (interactive)
+    (save-excursion
+      (move-beginning-of-line nil)
+      (delete-char 1)))
+  (global-set-key (kbd "C-<") #'(lambda () (interactive) (delete-from-start-of-line 1)))
+
+  (defun insert-space-start-of-line ()
+    "Insert a space at the start of current line without moving the point."
+    (interactive)
+    (save-excursion
+      (move-beginning-of-line 1)
+      (insert " ")))
+  (global-set-key (kbd "C->") #'insert-space-start-of-line)
+#+END_SRC
+
 ** Parenthesis
 It helps to be able to quickly type them and to be able to tell immediately where matching pairs are located.
 #+BEGIN_SRC emacs-lisp
