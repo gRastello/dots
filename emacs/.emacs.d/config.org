@@ -244,7 +244,7 @@ Some aesthetic refinement of dired.
 Toggle hidden files.
 #+BEGIN_SRC emacs-lisp
   (defun dired-toggle-hidden-files ()
-    "toggle hidden files visibility"
+    "Toggle hidden files visibility."
     (interactive)
 
     ;; Set ls switches accordigly.
@@ -257,6 +257,15 @@ Toggle hidden files.
       (kill-buffer (current-buffer))
       (dired current-directory)))
   (define-key dired-mode-map (kbd ".") #'dired-toggle-hidden-files)
+#+END_SRC
+
+Open files externally with =xdg-open=.
+#+BEGIN_SRC emacs-lisp
+  (defun dired-xdg-open ()
+    "Open the file at point with `xdf-open'."
+    (interactive)
+    (start-process "dired xdg-open" nil "xdg-open" (dired-get-file-for-visit)))
+  (define-key dired-mode-map (kbd "C-c C-x") #'dired-xdg-open)
 #+END_SRC
 
 ** =elfeed=
