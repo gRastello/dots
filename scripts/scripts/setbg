@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# Just chose a random bg from the ~/pictures/Wallpapers directory
-find ~/pictures/Wallpapers/ -type f | shuf -n 1 | xargs feh --bg-fill

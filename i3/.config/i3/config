@@ -109,13 +109,12 @@ bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+t exec killall telegram-desktop
 bindsym $mod+g exec gimp
 bindsym $mod+Return exec xdg-open ~/documents/html/panic_page.html
-bindsym $mod+Shift+b exec ~/scripts/setbg
 
 # Startup.
 exec nm-applet
-exec ~/scripts/setbg
 exec transmission-daemon
 
+exec feh --bg-fill ~/dotfiles/wallpaper/solid.png
 exec setxkbmap -option ctrl:nocaps -option compose:menu
 
 exec emacs
