@@ -110,6 +110,10 @@ bindsym $mod+Shift+t exec killall telegram-desktop
 bindsym $mod+g exec gimp
 bindsym $mod+Return exec xdg-open ~/documents/html/panic_page.html
 
+# Vi-mode.
+bindsym $mod+v exec ~/scripts/vimmap
+bindsym $mod+Shift+v exec ~/scripts/stdmap
+
 # Startup.
 exec nm-applet
 exec transmission-daemon
