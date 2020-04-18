@@ -378,6 +378,22 @@ The best document preparation system with the most painful syntax of all.
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 #+END_SRC
 
+** Lisp
+Stuff for lisps.
+#+BEGIN_SRC emacs-lisp
+  (use-package slime
+    :ensure t
+    :config
+    (setq inferior-lisp-program "/usr/bin/sbcl")
+    (setq slime-contribs '(slime-fancy)))
+
+  (use-package slime-company
+    :ensure t
+    :init
+      (require 'company)
+      (slime-setup '(slime-fancy slime-company)))
+#+END_SRC
+
 ** =magit=
 The comfiest way to use =git=.
 #+BEGIN_SRC emacs-lisp
