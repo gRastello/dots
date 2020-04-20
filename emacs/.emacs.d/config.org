@@ -159,10 +159,31 @@ Specific snippets for various modes and purposes and abbrev tables for them.
     (insert "\\ar[, \"\"]")
     (backward-char 5))
 
+  (defun snippet/latex/bf ()
+    "Snippet for `\textbf{}'."
+    (interactive)
+    (insert "\\textbf{}")
+    (backward-char 1))
+
+  (defun snippet/latex/mbf ()
+    "Snippet for `\mathbf{}'."
+    (interactive)
+    (insert "\\mathbf{}")
+    (backward-char 1))
+
+  (defun snippet/latex/mbb ()
+    "Snippet for `\mathbb{}'."
+    (interactive)
+    (insert "\\mathbb{}")
+    (backward-char 1))
+
   (define-abbrev-table 'latex-mode-abbrev-table
-    '(("m"  "" snippet/math-environment)
-      ("e"  "" snippet/latex/environment)
-      ("ar" "" snippet/latex/ar)))
+    '(("m"   "" snippet/math-environment)
+      ("e"   "" snippet/latex/environment)
+      ("ar"  "" snippet/latex/ar)
+      ("bf"  "" snippet/latex/bf)
+      ("mbf" "" snippet/latex/mbf)
+      ("mbb" "" snippet/latex/mbb)))
 #+END_SRC
 
 **** Org-mode
