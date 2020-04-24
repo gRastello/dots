@@ -28,6 +28,9 @@
 ;; Saves some time.
 (setf *timeout-wait* 2)
 
+;; Annoying to see.
+(setf *ignore-wm-inc-hints* t)
+
 ;; Brightness control.
 (defcommand brightness-up () ()
   "Raises brightness."
