@@ -55,6 +55,7 @@
 ;; Autostart.
 (run-shell-command "setxkbmap -option ctrl:nocaps -option compose:menu")
 (run-shell-command "transmission-daemon")
+(run-shell-command "xsetroot -cursor_name left_ptr")
 
 ;; Update colors just in case.
 (update-color-map (current-screen))
