@@ -413,6 +413,8 @@ Stuff for lisps.
     :init
       (require 'company)
       (slime-setup '(slime-fancy slime-company)))
+
+  (add-hook 'lisp-mode-hook #'show-paren-mode)
 #+END_SRC
 
 ** =magit=
