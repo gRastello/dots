@@ -20,8 +20,20 @@
 ;; Modeline
 (load-module "battery-portable")
 
+(defun get-volume ()
+  "Get the volume."
+  (run-shell-command "~/scripts/bar/volume" t))
+
+(defun get-brightness ()
+  "Get the brightness."
+  (run-shell-command "~/scripts/bar/brightness" t))
+
 (setf stumpwm:*screen-mode-line-format*
-      (list "BAT %B | %d"))
+      (list "BAT %B | VOL "
+	    '(:eval (get-volume))
+	    " | BRG "
+	    '(:eval (get-brightness))
+	    " | %d"))
 
 (define-key *root-map* (kbd "b") "mode-line")
 
