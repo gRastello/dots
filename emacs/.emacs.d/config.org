@@ -278,8 +278,7 @@ Some aesthetic refinement of dired.
   (setq dired-listing-switches "-lh")
   (add-hook 'dired-mode-hook (lambda ()
 			       (hl-line-mode 1)
-			       (toggle-truncate-lines)
-			       (show-paren-mode 0)))
+			       (toggle-truncate-lines)))
 #+END_SRC
 
 Toggle hidden files.
