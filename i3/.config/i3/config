@@ -100,7 +100,18 @@ bar {
   status_command i3blocks
   font pango:Source Code Pro 10
   position bottom
+
+  mode invisible
 }
+
+bindsym $mod+comma bar mode dock
+bindsym $mod+period bar mode invisible
+
+# gaps
+gaps outer 20
+
+bindsym $mod+Shift+comma gaps outer current plus 5
+bindsym $mod+Shift+period gaps outer current minus 5
 
 # Shortcuts.
 bindsym $mod+e exec emacs
