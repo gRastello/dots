@@ -423,6 +423,15 @@ The comfiest way to use =git=.
     (global-set-key (kbd "C-c g") #'magit-status))
 #+END_SRC
 
+** Markdown
+Org mode is cool but markdown is still needed.
+#+BEGIN_SRC emacs-lisp
+  (use-package markdown-mode
+    :ensure t
+    :config
+    (add-hook 'markdown-mode-hook #'flyspell-mode))
+#+END_SRC
+
 ** =pdf-tools=
 Pdfs are everywhere and being able to work with them within Emacs is fantastic.
 #+BEGIN_SRC emacs-lisp
