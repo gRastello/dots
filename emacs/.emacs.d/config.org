@@ -122,6 +122,12 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
+Add =~/src= and its subdirectories to the load path since I sometimes write some things there as well.
+#+BEGIN_SRC emacs-lisp
+  (let ((default-directory  "~/src/"))
+    (normal-top-level-add-subdirs-to-load-path))
+#+END_SRC
+
 ** =abbrev-mode=
 I used yasnippet for some time and now I fancy a change. =abbrev-mode= is quite cool but it isn't flexible enough; combining it with =skeleton-mode= is good but I wasn't able to get rid of some annoying behavior (you know those little things that aren't really a big deal but make you go insane? That.). In the end the solution I've found is quite simple: using elisp functions instead of skeletons. It is a little more painful to create new snippets, but it makes things as customizable as they can get.
 
@@ -462,6 +468,24 @@ Maybe useful if you forget your keybindings often (that is unlikely to happen th
     :ensure t
     :init
     (which-key-mode))
+#+END_SRC
+
+** Youtube
+=ytel= stuff; very experimental.
+#+BEGIN_SRC emacs-lisp
+  (require 'ytel)
+
+  (defun ytel-watch ()
+    "Stream video at point in mpv."
+    (interactive)
+    (let* ((video (ytel-get-current-video))
+	   (id    (assoc-default 'videoId video)))
+      (start-process "ytel mpv" nil
+		     "mpv"
+		     (concat "https://www.youtube.com/watch?v=" id))
+		     "--ytdl-format=bestvideo[height<=?720]+bestaudio/best")
+      (message "Starting streaming..."))
+  (define-key ytel-mode-map "y" #'ytel-watch)
 #+END_SRC
 
 * Org-mode
