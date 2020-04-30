@@ -115,6 +115,7 @@ bindsym $mod+Shift+period gaps outer current minus 5
 
 # Shortcuts.
 bindsym $mod+e exec emacs
+bindsym $mod+r exec xreader
 bindsym $mod+w exec chromium-browser-privacy
 bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+t exec killall telegram-desktop
@@ -129,7 +130,8 @@ bindsym $mod+Shift+v exec ~/scripts/stdmap
 exec nm-applet
 exec transmission-daemon
 
-exec feh --bg-fill ~/dotfiles/wallpaper/solid.png
+# exec feh --bg-fill ~/dotfiles/wallpaper/solid.png
+exec ~/scripts/setbg
 exec setxkbmap -option ctrl:nocaps -option compose:menu
 
 exec emacs
