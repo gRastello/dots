@@ -336,7 +336,8 @@ It's the best feed readed for Emacs.
 	     (link  (elfeed-entry-link entry)))
 	(start-process "elfeed youtube streaming" nil
 		       "mpv" link
-		       "--ytdl-format=bestvideo[height<=?720]+bestaudio/best")))
+		       "--ytdl-format=bestvideo[height<=?720]+bestaudio/best")
+	(message "Starting streaming...")))
 
     ;; Elfeed keybindings.
     (define-key elfeed-search-mode-map "y" #'elfeed-youtube-stream)
