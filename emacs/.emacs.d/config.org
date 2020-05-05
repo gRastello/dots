@@ -122,10 +122,9 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
-Add =~/src= and its subdirectories to the load path since I sometimes write some things there as well.
+Add some directories to the load path.
 #+BEGIN_SRC emacs-lisp
-  (let ((default-directory  "~/src/"))
-    (normal-top-level-add-subdirs-to-load-path))
+  (add-to-list 'load-path "~/src/ytel")
 #+END_SRC
 
 ** =abbrev-mode=
