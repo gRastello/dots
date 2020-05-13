@@ -67,6 +67,11 @@ A little text-editing improvement.
   (global-set-key (kbd "C->") #'insert-space-start-of-line)
 #+END_SRC
 
+** Fringe
+#+BEGIN_SRC emacs-lisp
+  (fringe-mode '(10 . 1))
+#+END_SRC
+
 ** Parenthesis
 It helps to be able to quickly type them and to be able to tell immediately where matching pairs are located.
 #+BEGIN_SRC emacs-lisp
