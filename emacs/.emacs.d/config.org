@@ -127,11 +127,6 @@ This is probably the most annoying thing of all.
 * Packages
 This is why you use Emacs.
 
-Add some directories to the load path.
-#+BEGIN_SRC emacs-lisp
-  (add-to-list 'load-path "~/src/ytel")
-#+END_SRC
-
 ** =abbrev-mode=
 I used yasnippet for some time and now I fancy a change. =abbrev-mode= is quite cool but it isn't flexible enough; combining it with =skeleton-mode= is good but I wasn't able to get rid of some annoying behavior (you know those little things that aren't really a big deal but make you go insane? That.). In the end the solution I've found is quite simple: using elisp functions instead of skeletons. It is a little more painful to create new snippets, but it makes things as customizable as they can get.
 
@@ -478,6 +473,7 @@ Maybe useful if you forget your keybindings often (that is unlikely to happen th
 ** Youtube
 =ytel= stuff; very experimental.
 #+BEGIN_SRC emacs-lisp
+  (load-file "~/src/ytel/ytel.el")
   (require 'ytel)
 
   (add-hook 'ytel-mode-hook (lambda ()
@@ -495,6 +491,13 @@ Maybe useful if you forget your keybindings often (that is unlikely to happen th
 		     "--ytdl-format=bestvideo[height<=?720]+bestaudio/best")
       (message "Starting streaming..."))
   (define-key ytel-mode-map "y" #'ytel-watch)
+
+  (defun ytel-explore-element ()
+    "Just print the current event as a message."
+    (interactive)
+    (let* ((video (ytel-get-current-video)))
+      (message "%s" video)))
+  (define-key ytel-mode-map "x" #'ytel-explore-element)
 #+END_SRC
 
 * Org-mode
