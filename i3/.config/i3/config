@@ -81,7 +81,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 for_window [class="Gimp"]     move workspace $ws10
 for_window [class="Telegram"] move workspace $ws2
 
-for_window [class="mpv"]      move workspace $ws9
+for_window [class="mpv"]      move workspace $ws2
 for_window [class="mpv"]      floating enable
 for_window [class="mpv"]      resize set 889 500
 for_window [class="mpv"]      move position center
@@ -113,10 +113,10 @@ bindsym $mod+comma bar mode dock
 bindsym $mod+period bar mode invisible
 
 # gaps
-gaps outer 20
+# gaps outer 20
 
-bindsym $mod+Shift+comma gaps outer current plus 5
-bindsym $mod+Shift+period gaps outer current minus 5
+# bindsym $mod+Shift+comma gaps outer current plus 5
+# bindsym $mod+Shift+period gaps outer current minus 5
 
 # Shortcuts.
 bindsym $mod+e exec emacs
