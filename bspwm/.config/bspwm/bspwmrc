@@ -17,4 +17,5 @@ bspc config active_border_color  "#222222"
 bspc config normal_border_color  "#222222"
 
 # Float all the windows.
-bspc rule -a "*" state=floating
+bspc rule -a "*"   state=floating
+bspc rule -a "mpv" rectangle=890x500+0+0 center=on
