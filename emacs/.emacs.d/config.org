@@ -461,6 +461,13 @@ Modes and stuff for rust.
     :ensure t)
 #+END_SRC
 
+** Torrents
+We can control Transmission from Emacs.
+#+BEGIN_SRC emacs-lisp
+  (use-package transmission
+    :ensure t)
+#+END_SRC
+
 ** =which-key=
 Maybe useful if you forget your keybindings often (that is unlikely to happen through) but surprisingly useful for discovering things you would have never thought existed ().
 #+BEGIN_SRC emacs-lisp
