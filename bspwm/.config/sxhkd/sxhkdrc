@@ -33,7 +33,7 @@ F1
 
 # A program launcher.
 super + d
-  dmenu_run
+  ~/scripts/launcher
 
 # Bookmarks dmenu script.
 super + b

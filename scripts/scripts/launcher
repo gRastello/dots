@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Somehow better than `dmenu_run` as it starts up immediately.
+# It takes a bit of time to setup PROGRAMS tho.
+
+PROGRAMS=( "emacs"
+	   "chromium-browser-privacy"
+	   "telegram-desktop")
+
+printf "%s\n" "${PROGRAMS[@]}" | dmenu -p "Launch:" | sh -e
