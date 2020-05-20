@@ -1,0 +1,44 @@
+# Reload sxhkd and bspwm
+super + shift + r
+  pkill -USR1 -x sxhkd
+  bspc wm -r
+	
+# Focus switching.
+{F2, F3}
+  bspc node -f {next, prev}.local
+
+F1
+  bspc node -f last
+
+# Killing.
+{F4, F12}
+  bspc node -{c,k}
+
+# Brightness control.
+@XF86MonBrightnessUp
+  light -A 5
+
+@XF86MonBrightnessDown
+  light -U 5
+
+# Volume control.
+@XF86AudioRaiseVolume
+  pactl set-sink-volume @DEFAULT_SINK@ +10%
+
+@XF86AudioLowerVolume
+  pactl set-sink-volume @DEFAULT_SINK@ -10%
+
+@XF86AudioMute
+  pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# A program launcher.
+super + d
+  dmenu_run
+
+# Bookmarks dmenu script.
+super + b
+  ~/scripts/bookmarks
+
+# Shutdown script.
+super + shift + s
+  ~/scripts/shutdown
