@@ -8,7 +8,8 @@ BACKUPDIRS=("$HOME/org"
 	    "$HOME/src"
 	    "$HOME/documents"
 	    "$HOME/dotfiles"
-	    "$HOME/podcast")
+	    "$HOME/podcast"
+	    "$HOME/videos/youtube")
 
 for dir in "${BACKUPDIRS[@]}"; do
     rsync -av --delete "$dir" "$1"backup
