@@ -35,6 +35,10 @@ F1
 super + d
   ~/scripts/launcher
 
+# A web launcher.
+super + w
+  ~/scripts/weblauncher
+
 # Bookmarks dmenu script.
 super + b
   ~/scripts/bookmarks

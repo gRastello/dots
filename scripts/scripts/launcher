@@ -5,6 +5,7 @@
 
 PROGRAMS=( "emacs"
 	   "chromium-browser-privacy"
-	   "telegram-desktop")
+	   "telegram-desktop"
+	   "transmission-qt")
 
 printf "%s\n" "${PROGRAMS[@]}" | dmenu -p "Launch:" | sh -e
