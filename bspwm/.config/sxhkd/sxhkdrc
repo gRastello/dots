@@ -31,6 +31,13 @@ F1
 @XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# Vi-mode
+super + v
+  ~/scripts/vimmap
+
+super + shift v
+  ~/scripts/stdmapa
+
 # A program launcher.
 super + d
   ~/scripts/launcher
@@ -42,6 +49,13 @@ super + w
 # Bookmarks dmenu script.
 super + b
   ~/scripts/bookmarks
+
+# Screencasting (needed sometimes).
+super + p
+  ffmpeg -y -f x11grab -s 1366x768 -i :0.0 ~/screencast.mkv
+
+super + shift + p
+  killall ffmpeg
 
 # Shutdown script.
 super + shift + s
