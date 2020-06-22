@@ -15,17 +15,21 @@
 @XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+# Info notification.
+super + i
+  $HOME/scripts/info
+
 # A program launcher.
 super + d
-  ~/scripts/launcher
+  $HOME/scripts/launcher
 
 # A web launcher.
 super + w
-  ~/scripts/weblauncher
+  $HOME/scripts/weblauncher
 
 # Bookmarks dmenu script.
 super + b
-  ~/scripts/bookmarks
+  $HOME/scripts/bookmarks
 
 # Screencasting and screenshotting (needed sometimes).
 super + p
@@ -44,4 +48,4 @@ super + Print
 
 # Shutdown script.
 super + shift + s
-  ~/scripts/shutdown
+  $HOME/scripts/shutdown

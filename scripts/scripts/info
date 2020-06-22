@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Build a notification with some system info.
+
+# Get date.
+DATE=$(date '+%Y %b %d (%a) %H:%M')
+
+# Get battery informations.
+capacity=$(cat /sys/class/power_supply/BAT1/capacity) || exit
+status=$(cat /sys/class/power_supply/BAT1/status) || exit
+BAT=$(printf "BAT: %s%% (%s)" "$capacity" "$status")
+
+# Get screen brightness.
+raw=$(light -G)
+refined=$(echo "print(math.floor($raw))" | xargs lua -e)
+BRG=$(printf "BRG: %s%%" "$refined")
+
+# Get the volume.
+volstat="$(amixer get Master)"
+mute=""
+echo "$volstat" | grep "\[off\]" >/dev/null && mute="(muted) "
+volume=$(echo "$volstat" | grep -o "\[[0-9]\+%\]" | sed 's/[^0-9]*//g' | head -n 1)
+VOL=$(printf "VOL: %s%s%%" "$mute" "$volume")
+
+# Send the notification.
+notify-send -u normal "Info" "$DATE\n\n$BAT\n$BRG\n$VOL"
+
+
+

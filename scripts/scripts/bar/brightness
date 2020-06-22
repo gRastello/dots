@@ -1,6 +1,0 @@
-#!/bin/sh
-
-brg=$(light -G)
-brightness=$(echo "print(math.floor($brg))" | xargs lua -e)
-
-printf "%s%%" "$brightness"
