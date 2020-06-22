@@ -1,18 +1,7 @@
-# Reload sxhkd and bspwm
+# Reload sxhkd
 super + shift + r
   pkill -USR1 -x sxhkd
-  bspc wm -r
-	
-# Focus switching.
-{F2, F3}
-  bspc node -f {next, prev}.local
-
-F1
-  bspc node -f last
-
-# Killing.
-{F4, F12}
-  bspc node -{c,k}
+  $HOME/.config/openbox/autostart
 
 # Brightness control.
 @XF86MonBrightnessUp
@@ -35,8 +24,8 @@ F1
 super + v
   ~/scripts/vimmap
 
-super + shift v
-  ~/scripts/stdmapa
+super + shift + v
+  ~/scripts/stdmap
 
 # A program launcher.
 super + d
@@ -50,12 +39,18 @@ super + w
 super + b
   ~/scripts/bookmarks
 
-# Screencasting (needed sometimes).
+# Screencasting and screenshotting (needed sometimes).
 super + p
   ffmpeg -y -f x11grab -s 1366x768 -i :0.0 ~/screencast.mkv
 
 super + shift + p
   killall ffmpeg
+
+Print
+  notify-send -u normal "Screenshot" "Cheese!" && import -window root ~/documents/pictures/screenshots/last-screenshot.png
+
+super + Print
+  notify-send -u normal "Screenshot" "Opening the GIMP..." && import -window root ~/documents/pictures/screenshots/last-screenshot.png && gimp ~/documents/pictures/screenshots/last-screenshot.png
 
 # Shutdown script.
 super + shift + s

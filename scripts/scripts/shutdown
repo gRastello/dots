@@ -5,5 +5,5 @@ c=$(echo -e "shutdown\nkill wm" | dmenu -i)
 if [ "$c" == "shutdown" ]; then
     shutdown now
 elif [ "$c" == "kill wm" ]; then
-    killall bspwm
+    killall openbox
 fi

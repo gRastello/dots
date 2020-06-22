@@ -480,7 +480,7 @@ Maybe useful if you forget your keybindings often (that is unlikely to happen th
 ** Youtube
 =ytel= stuff; very experimental.
 #+BEGIN_SRC emacs-lisp
-  (load-file "~/src/ytel/ytel.el")
+  (load-file "~/documents/src/ytel/ytel.el")
   (require 'ytel)
 
   (add-hook 'ytel-mode-hook (lambda ()

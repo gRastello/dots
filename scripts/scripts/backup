@@ -1,18 +1,11 @@
 #!/bin/sh
 
-BACKUPDIRS=("$HOME/org"
-	    "$HOME/.emacs.d"
-	    "$HOME/pictures"
-	    "$HOME/music"
-	    "$HOME/pdfs"
-	    "$HOME/src"
-	    "$HOME/documents"
-	    "$HOME/dotfiles"
-	    "$HOME/podcast"
-	    "$HOME/videos/youtube")
+# Back up away the most important directory.
+rsync -av --delete "$HOME/documents" "$1"backup
 
-for dir in "${BACKUPDIRS[@]}"; do
-    rsync -av --delete "$dir" "$1"backup
-done
+# Back up some other files that for one reason or another are not in
+# the most important directory.
+mkdir -p "$1"backup/misc
+rsync -av --delete "$HOME/.emacs.d/feeds.el" "$1"backup/misc/
 
-notify-send -u normal Backup "Backup completed!"
+notify-send -u normal "Backup" "Backup completed!"
