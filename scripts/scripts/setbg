@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# set a random wallpaper
-
-find $HOME/pictures/Wallpapers | shuf -n1 | xargs feh --bg-fill
