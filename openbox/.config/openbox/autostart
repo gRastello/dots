@@ -1,0 +1,10 @@
+#! /bin/sh
+
+# Some visual stuff.
+xsetroot -gray
+setxkbmap -option ctrl:nocaps -option compose:menu
+
+# Start a bunch of daemons.
+sxhkd &
+transmission-daemon &
+dunst &
