@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Take screenshots. Pass an extra argument to edit the screenshot immediately
+# in the GIMP.
+
+import -window root ~/documents/pictures/screenshots/last-screenshot.png
+
+if [[ $# -eq 1 ]]; then
+    gimp ~/documents/pictures/screenshots/last-screenshot.png &
+    notify-send -u normal "Screenshot" "Starting the GIMP..."
+else
+    notify-send -u normal "Screenshot" "Cheese!"
+fi
+

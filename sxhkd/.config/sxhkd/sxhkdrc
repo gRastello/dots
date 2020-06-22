@@ -1,8 +1,3 @@
-# Reload sxhkd
-super + shift + r
-  pkill -USR1 -x sxhkd
-  $HOME/.config/openbox/autostart
-
 # Brightness control.
 @XF86MonBrightnessUp
   light -A 5
@@ -20,13 +15,6 @@ super + shift + r
 @XF86AudioMute
   pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-# Vi-mode
-super + v
-  ~/scripts/vimmap
-
-super + shift + v
-  ~/scripts/stdmap
-
 # A program launcher.
 super + d
   ~/scripts/launcher
@@ -41,16 +29,18 @@ super + b
 
 # Screencasting and screenshotting (needed sometimes).
 super + p
-  ffmpeg -y -f x11grab -s 1366x768 -i :0.0 ~/screencast.mkv
+  ffmpeg -y -f x11grab -s 1366x768 -i :0.0 ~/screencast.mkv & \
+  notify-send -u normal "Screencasting" "Started new screencast!"
 
 super + shift + p
-  killall ffmpeg
+  killall ffmpeg && \
+  notify-send -u normal "Screencasting" "Stopped screencasting!"
 
 Print
-  notify-send -u normal "Screenshot" "Cheese!" && import -window root ~/documents/pictures/screenshots/last-screenshot.png
-
+  $HOME/scripts/screenshot
+  
 super + Print
-  notify-send -u normal "Screenshot" "Opening the GIMP..." && import -window root ~/documents/pictures/screenshots/last-screenshot.png && gimp ~/documents/pictures/screenshots/last-screenshot.png
+  $HOME/scripts/screenshot gimp
 
 # Shutdown script.
 super + shift + s
