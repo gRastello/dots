@@ -1,4 +1,4 @@
 #!/bin/sh
 
 d=$(date '+%Y %b %d (%a) %H:%M')
-echo "$d"
+echo "$d "
