@@ -481,102 +481,42 @@ Maybe useful if you forget your keybindings often (that is unlikely to happen th
     (which-key-mode))
 #+END_SRC
 
-** Youtube
-=ytel= stuff; very experimental.
-#+BEGIN_SRC emacs-lisp
-  (load-file "~/src/ytel/ytel.el")
-  (require 'ytel)
-
-  (add-hook 'ytel-mode-hook (lambda ()
-			      (hl-line-mode 1)
-			      (setq truncate-lines t)))
-
-  (defun ytel-watch ()
-    "Stream video at point in mpv."
-    (interactive)
-    (let* ((video (ytel-get-current-video))
-	   (id    (ytel-video-id video)))
-      (start-process "ytel mpv" nil
-		     "mpv"
-		     (concat "https://www.youtube.com/watch?v=" id))
-		     "--ytdl-format=bestvideo[height<=?720]+bestaudio/best")
-      (message "Starting streaming..."))
-  (define-key ytel-mode-map "y" #'ytel-watch)
-
-  (defun ytel-explore-element ()
-    "Just print the current event as a message."
-    (interactive)
-    (let* ((video (ytel-get-current-video)))
-      (message "%s" video)))
-  (define-key ytel-mode-map "x" #'ytel-explore-element)
-#+END_SRC
-
 * Org-mode
 It's as awesome as people say.
 #+BEGIN_SRC emacs-lisp
   (require 'org)
 
-  (setq org-directory "~/org")
+  (setq org-directory "~/documents/org")
 
   (add-hook 'org-mode-hook '(lambda ()
 			      (visual-line-mode 1)
 			      (flyspell-mode)))
 
-  (global-set-key (kbd "C-c a")   #'(lambda ()
-				      (interactive)
-				      (org-agenda nil "a")
-				      (org-agenda-day-view)))
   (global-set-key (kbd "C-c c") 'org-capture)
 
-  (setq org-default-inbox-file    "~/org/Inbox.org"
-	org-default-incubate-file "~/org/Incubate.org"
-	org-default-tasks-file    "~/org/Tasks.org"
-	org-default-martin-file   "~/org/Martin.org"
-	org-default-media-file    "~/org/Media.org")
+  (setq gtd-inbox-file   "~/documents/org/inbox.org"
+	gtd-main-file    "~/documents/org/gtd.org"
+	gtd-someday-file "~/documents/org/someday.org"
+	gtd-media-file   "~/documents/org/media.org")
 
-  (setq org-agenda-files (list org-default-tasks-file
-			       org-default-martin-file))
+  (setq org-refile-targets `((,gtd-main-file    :level . 1)
+			     (,gtd-media-file   :level . 2)
+			     (,gtd-someday-file :level . 0)))
 
   (setq org-log-done 'time)
 
-  (setq org-capture-templates `(("i" "Inbox entry"        entry
-				 (file ,org-default-inbox-file)
-				 "* %?\n%i"
+  (setq org-capture-templates `(("i" "Inbox entry" entry
+				 (file ,gtd-inbox-file)
+				 "* %?\n  ADDED: %U"
 				 :empty-lines 1)))
 
   (setq org-refile-use-outline-path        'file
 	org-outline-path-complete-in-steps nil)
 
-  (setq org-refile-targets '((org-default-incubate-file :level . 0)
-			     (org-default-tasks-file :level . 0)))
+  (global-set-key (kbd "C-c a") 'org-agenda)
+
+  (setq org-agenda-files '("~/documents/org/gtd.org"))
 
   (setq org-agenda-skip-scheduled-if-done t
 	org-agenda-todo-ignore-scheduled  'future)
-#+END_SRC
-
-A better (faster) way to mark headers in =Inbox.org= as TODO tomorrow and move them to =Tasks.org=.
-#+BEGIN_SRC emacs-lisp
-  (defun refile-to (file heading)
-    "Refile current heading to `file` `header`."
-    (let ((pos (save-excursion
-		 (find-file file)
-		 (org-find-exact-headline-in-buffer heading))))
-      (org-refile nil nil (list heading file nil pos))))
-
-  (defun org-todo-and-tomorrow ()
-    "Mark the entry at point as TODO, set a deadline for tomorrow and move it to the Task.org file."
-    (interactive)
-    (org-mark-ring-push)
-    (org-todo)
-    (org-deadline t "+1d")
-    (refile-to org-default-tasks-file "Tasks")
-    (org-mark-ring-goto))
-
-  (define-key org-mode-map (kbd "C-c t") #'org-todo-and-tomorrow)
-#+END_SRC
-
-Some useful bindings that make bookkeeping easier.
-#+BEGIN_SRC emacs-lisp
-  (define-key org-mode-map (kbd "C-<right>") #'org-increase-number-at-point)
-  (define-key org-mode-map (kbd "C-<left>")  #'org-decrease-number-at-point)
 #+END_SRC

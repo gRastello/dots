@@ -1,0 +1,17 @@
+#!/bin/sh
+
+cut="/tmp/cut.mkv"
+palette="/tmp/palette.png"
+filters="fps=15,scale=320:-1:flags=lanczos"
+
+printf "Cutting the video"
+ffmpeg -v warning -i "$1" -ss "$2" -to "$3" -y "$cut" || exit 1
+printf ": done\n"
+
+printf "Extracting color palette"
+ffmpeg -v warning -i $cut -vf "$filters,palettegen" -y $palette || exit 1
+printf ": done\n"
+
+printf "Assembling the gif"
+ffmpeg -v warning -i $cut -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $4 || exit 1
+printf ": done!\n"

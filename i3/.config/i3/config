@@ -83,7 +83,7 @@ for_window [class="mpv"]      resize set 889 500
 for_window [class="mpv"]      move position center
 
 # Screenshot.
-bindsym Print exec ~/scripts/screenshot
+bindsym Print exec $HOME/scripts/screenshot
 bindsym $mod+Print exec $HOME/scripts/screenshot foo
 
 # Reload the configuration file.
@@ -106,11 +106,10 @@ bar {
 # Shortcuts.
 bindsym $mod+e exec emacs
 bindsym $mod+r exec xreader
-bindsym $mod+w exec chromium-browser-privacy
+bindsym $mod+w exec brave-browser
 bindsym $mod+t exec telegram-desktop
 bindsym $mod+Shift+t exec killall telegram-desktop
 bindsym $mod+g exec gimp
-bindsym $mod+Return exec xdg-open ~/documents/html/panic_page.html
 
 # Vi-mode.
 bindsym $mod+v exec ~/scripts/vimmap

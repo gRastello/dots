@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Take screenshots. Pass an extra argument to edit the screenshot immediately
+# in the GIMP.
+
+time=$(date +"%Y-%m-%d-%H:%M:%S")
+
+ffmpeg -f x11grab -framerate 1 -video_size 1366x768 -i :0.0 -vframes 1 ~/documents/pictures/screenshots/"$time".png -y
+
+if [[ $# -eq 1 ]]; then
+    gimp ~/documents/pictures/screenshots/"$time".png &
+    notify-send -u normal "Screenshot" "Starting the GIMP..."
+else
+    notify-send -u normal "Screenshot" "Cheese!"
+fi
+
